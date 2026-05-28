@@ -18,6 +18,8 @@ jobs:
           fetch-depth: 0
       - uses: oven-sh/setup-bun@v2
       - run: bun install
+      - name: Add aggregate package changesets
+        run: bun run changeset:aggregates
       - name: Changesets release
         uses: changesets/action@v1
         with:

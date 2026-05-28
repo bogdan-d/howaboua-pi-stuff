@@ -14,7 +14,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",
-    "check:changed": "bun run scripts/check-changed.mjs"
+    "check:changed": "bun run scripts/check-changed.mjs",
+    "changeset:aggregates": "bun run scripts/add-aggregate-changesets.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.16",
