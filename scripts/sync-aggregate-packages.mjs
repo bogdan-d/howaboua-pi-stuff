@@ -5,9 +5,11 @@ import { join } from "node:path";
 const root = process.cwd();
 const packagesDir = join(root, "packages");
 const aggregateDirs = new Set(["pi-stuff", "pi-skills", "pi-extensions"]);
+const bundleExcludedPackages = new Set(["@howaboua/pi-codex-conversion", "@howaboua/pi-skill-omarchy-help"]);
 const packages = readdirSync(packagesDir)
   .filter((dir) => !aggregateDirs.has(dir) && existsSync(join(packagesDir, dir, "package.json")))
   .map((dir) => ({ dir, pkg: JSON.parse(readFileSync(join(packagesDir, dir, "package.json"), "utf8")) }))
+  .filter((entry) => !bundleExcludedPackages.has(entry.pkg.name))
   .sort((a, b) => a.pkg.name.localeCompare(b.pkg.name));
 
 function has(kind, entry) {

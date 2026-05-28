@@ -1,42 +1,57 @@
 {
-  "name": "@howaboua/pi-skills",
-  "version": "0.0.0",
-  "description": "all Howaboua Pi skills",
-  "type": "module",
-  "keywords": [
-    "pi-package",
-    "pi",
-    "howaboua"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@howaboua/pi-markdown-workflows": "0.2.9"
-  },
-  "bundledDependencies": [
-    "@howaboua/pi-markdown-workflows"
-  ],
-  "files": [
-    "README.md",
-    "LICENSE"
-  ],
-  "pi": {
-    "skills": [
-      "node_modules/@howaboua/pi-markdown-workflows/skills"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IgorWarzocha/howaboua-pi-stuff.git",
-    "directory": "packages/pi-skills"
-  },
-  "homepage": "https://github.com/IgorWarzocha/howaboua-pi-stuff/tree/main/packages/pi-skills#readme",
-  "bugs": {
-    "url": "https://github.com/IgorWarzocha/howaboua-pi-stuff/issues"
-  },
-  "scripts": {
-    "prepack": "bun run ../../scripts/prepare-aggregate-package.mjs"
-  }
+	"name": "@howaboua/pi-skills",
+	"version": "0.0.0",
+	"description": "all Howaboua Pi skills",
+	"type": "module",
+	"keywords": [
+		"pi-package",
+		"pi",
+		"howaboua"
+	],
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@howaboua/pi-skill-agent-native-hardening": "0.0.0",
+		"@howaboua/pi-skill-anti-ai-copy": "0.0.0",
+		"@howaboua/pi-skill-chrome-cdp": "0.0.0",
+		"@howaboua/pi-skill-gh-issue-pr-flow": "0.0.0",
+		"@howaboua/pi-skill-project-reference-research": "0.0.0",
+		"@howaboua/pi-skill-skill-creator": "0.0.0"
+	},
+	"bundledDependencies": [
+		"@howaboua/pi-skill-agent-native-hardening",
+		"@howaboua/pi-skill-anti-ai-copy",
+		"@howaboua/pi-skill-chrome-cdp",
+		"@howaboua/pi-skill-gh-issue-pr-flow",
+		"@howaboua/pi-skill-project-reference-research",
+		"@howaboua/pi-skill-skill-creator"
+	],
+	"files": [
+		"README.md",
+		"LICENSE"
+	],
+	"pi": {
+		"skills": [
+			"node_modules/@howaboua/pi-skill-agent-native-hardening/skills",
+			"node_modules/@howaboua/pi-skill-anti-ai-copy/skills",
+			"node_modules/@howaboua/pi-skill-chrome-cdp/skills",
+			"node_modules/@howaboua/pi-skill-gh-issue-pr-flow/skills",
+			"node_modules/@howaboua/pi-skill-project-reference-research/skills",
+			"node_modules/@howaboua/pi-skill-skill-creator/skills"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IgorWarzocha/howaboua-pi-stuff.git",
+		"directory": "packages/pi-skills"
+	},
+	"homepage": "https://github.com/IgorWarzocha/howaboua-pi-stuff/tree/main/packages/pi-skills#readme",
+	"bugs": {
+		"url": "https://github.com/IgorWarzocha/howaboua-pi-stuff/issues"
+	},
+	"scripts": {
+		"prepack": "bun run ../../scripts/prepare-aggregate-package.mjs"
+	}
 }
