@@ -8,131 +8,133 @@ Pi packages run with your local permissions. You can obviously trust me, a stran
 
 ## Packages
 
-### Bundles
+GitHub pipe tables mangle long install commands, so this uses an HTML table with selectable command blocks.
 
-General setup: extensions plus shareable skills. Excludes Codex conversion and Omarchy because those depend on your model/workstation setup.
-
-```bash
-pi install npm:@howaboua/pi-stuff
-```
-
-General extension packages. Excludes `pi-codex-conversion`; install that separately if you run Codex/GPT models and want native-tool adaptation.
-
-```bash
-pi install npm:@howaboua/pi-extensions
-```
-
-Shareable skill packages. Excludes `omarchy-help` because not everyone is running my kind of desktop setup.
-
-```bash
-pi install npm:@howaboua/pi-skills
-```
-
-### Extensions
-
-Codex-style tools for Pi: `exec_command`, `write_stdin`, `apply_patch`, image tools, native Codex web search, and prompt/tool adaptation. Install separately if you run Codex/GPT-style models.
-
-```bash
-pi install npm:@howaboua/pi-codex-conversion
-```
-
-Gives the agent a `change_reasoning` tool so it can raise/lower reasoning level when the work changes shape.
-
-```bash
-pi install npm:@howaboua/pi-auto-reasoning-tool
-```
-
-Adds `/marker` and `/end` for long sessions. Set a useful return point, summarize what was accomplished, then keep going.
-
-```bash
-pi install npm:@howaboua/pi-auto-trees
-```
-
-Adds `/review`, an isolated review subagent that checks the right branch/range and returns findings for the main agent to address.
-
-```bash
-pi install npm:@howaboua/pi-subagent-review
-```
-
-Adds `semantic_grep`, a meaning-based code/docs search tool backed by local SQLite indexes and OpenAI-compatible embeddings.
-
-```bash
-pi install npm:@howaboua/pi-semantic-grep
-```
-
-Adds `vent`, a small tool for logging repeated workflow friction into `VENT.md`.
-
-```bash
-pi install npm:@howaboua/pi-vent
-```
-
-Adds `explore_subagent`, discovery-only shallow/deep subagents for reading and summarizing code without editing files.
-
-```bash
-pi install npm:@howaboua/pi-explore-subagents
-```
-
-Adds `/skills`, `/workflows`, workflow capture, `/learn`, and nested `AGENTS.md` context loading.
-
-```bash
-pi install npm:@howaboua/pi-markdown-workflows
-```
-
-Side-session questions with explicit injection back into the main chat. Useful when you want a tangent without derailing the main thread.
-
-```bash
-pi install npm:@howaboua/pi-smart-btw
-```
-
-KISS local memory for Pi based on global `AGENTS.md`.
-
-```bash
-pi install npm:@howaboua/pi-memories
-```
-
-### Skills
-
-Refactor/audit posture for agent-built code: fewer godfiles, clearer ownership, less duplication, better traversability.
-
-```bash
-pi install npm:@howaboua/pi-skill-agent-native-hardening
-```
-
-Rewrites text so it sounds specific, human, and less like a polite SaaS brochure.
-
-```bash
-pi install npm:@howaboua/pi-skill-anti-ai-copy
-```
-
-Browser inspection/control through Chrome DevTools Protocol. Based on [`pasky/chrome-cdp-skill`](https://github.com/pasky/chrome-cdp-skill), with local Pi packaging changes.
-
-```bash
-pi install npm:@howaboua/pi-skill-chrome-cdp
-```
-
-A generic GitHub issue/PR workflow with `gh`, branches, validation, PR bodies, and review triage.
-
-```bash
-pi install npm:@howaboua/pi-skill-gh-issue-pr-flow
-```
-
-Looks up external or local repos as reference context, then returns evidence-backed findings.
-
-```bash
-pi install npm:@howaboua/pi-skill-project-reference-research
-```
-
-Helps design, write, package, and tighten reusable agent skills.
-
-```bash
-pi install npm:@howaboua/pi-skill-skill-creator
-```
-
-Generic Arch + Omarchy workstation maintenance. Install separately and customize it for your own machine.
-
-```bash
-pi install npm:@howaboua/pi-skill-omarchy-help
-```
+<table>
+<thead><tr><th>Group</th><th>Install</th><th>Type</th><th>What it does</th></tr></thead>
+<tbody>
+<tr>
+<td>Bundles</td>
+<td><pre><code>pi install npm:@howaboua/pi-stuff</code></pre></td>
+<td>bundle</td>
+<td>General setup: extensions plus shareable skills. Excludes Codex conversion and Omarchy because those depend on your model/workstation setup.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-extensions</code></pre></td>
+<td>bundle</td>
+<td>General extension packages. Excludes <code>pi-codex-conversion</code>; install that separately if you run Codex/GPT models and want native-tool adaptation.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skills</code></pre></td>
+<td>bundle</td>
+<td>Shareable skill packages. Excludes <code>omarchy-help</code> because not everyone is running my kind of desktop setup.</td>
+</tr>
+<tr>
+<td>Extensions</td>
+<td><pre><code>pi install npm:@howaboua/pi-codex-conversion</code></pre></td>
+<td>extension, separate</td>
+<td>Codex-style tools for Pi: <code>exec_command</code>, <code>write_stdin</code>, <code>apply_patch</code>, image tools, native Codex web search, and prompt/tool adaptation.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-auto-reasoning-tool</code></pre></td>
+<td>extension</td>
+<td>Gives the agent a <code>change_reasoning</code> tool so it can raise/lower reasoning level when the work changes shape.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-auto-trees</code></pre></td>
+<td>extension</td>
+<td>Adds <code>/marker</code> and <code>/end</code> for long sessions. Set a useful return point, summarize what was accomplished, then keep going.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-subagent-review</code></pre></td>
+<td>extension</td>
+<td>Adds <code>/review</code>, an isolated review subagent that checks the right branch/range and returns findings for the main agent to address.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-semantic-grep</code></pre></td>
+<td>extension</td>
+<td>Adds <code>semantic_grep</code>, a meaning-based code/docs search tool backed by local SQLite indexes and OpenAI-compatible embeddings.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-vent</code></pre></td>
+<td>extension</td>
+<td>Adds <code>vent</code>, a small tool for logging repeated workflow friction into <code>VENT.md</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-explore-subagents</code></pre></td>
+<td>extension</td>
+<td>Adds <code>explore_subagent</code>, discovery-only shallow/deep subagents for reading and summarizing code without editing files.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-markdown-workflows</code></pre></td>
+<td>extension</td>
+<td>Adds <code>/skills</code>, <code>/workflows</code>, workflow capture, <code>/learn</code>, and nested <code>AGENTS.md</code> context loading.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-smart-btw</code></pre></td>
+<td>extension</td>
+<td>Side-session questions with explicit injection back into the main chat. Useful when you want a tangent without derailing the main thread.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-memories</code></pre></td>
+<td>extension</td>
+<td>KISS local memory for Pi based on global <code>AGENTS.md</code>.</td>
+</tr>
+<tr>
+<td>Skills</td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-agent-native-hardening</code></pre></td>
+<td>skill</td>
+<td>Refactor/audit posture for agent-built code: fewer godfiles, clearer ownership, less duplication, better traversability.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-anti-ai-copy</code></pre></td>
+<td>skill</td>
+<td>Rewrites text so it sounds specific, human, and less like a polite SaaS brochure.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-chrome-cdp</code></pre></td>
+<td>skill</td>
+<td>Browser inspection/control through Chrome DevTools Protocol. Based on <a href="https://github.com/pasky/chrome-cdp-skill"><code>pasky/chrome-cdp-skill</code></a>, with local Pi packaging changes.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-gh-issue-pr-flow</code></pre></td>
+<td>skill</td>
+<td>A generic GitHub issue/PR workflow with <code>gh</code>, branches, validation, PR bodies, and review triage.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-project-reference-research</code></pre></td>
+<td>skill</td>
+<td>Looks up external or local repos as reference context, then returns evidence-backed findings.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-skill-creator</code></pre></td>
+<td>skill</td>
+<td>Helps design, write, package, and tighten reusable agent skills.</td>
+</tr>
+<tr>
+<td></td>
+<td><pre><code>pi install npm:@howaboua/pi-skill-omarchy-help</code></pre></td>
+<td>skill, separate</td>
+<td>Generic Arch + Omarchy workstation maintenance. Install separately and customize it for your own machine.</td>
+</tr>
+</tbody>
+</table>
 
 ## The workflow
 
