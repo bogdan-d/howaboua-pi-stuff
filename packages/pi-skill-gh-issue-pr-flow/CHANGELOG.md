@@ -1,5 +1,11 @@
 # @howaboua/pi-skill-gh-issue-pr-flow
 
+## 0.0.2
+
+### Patch Changes
+
+- [#11](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/11) [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Document file-based GitHub comment and PR body posting to avoid escaped newline formatting mistakes.
+
 ## 0.0.1
 
 ### Patch Changes
