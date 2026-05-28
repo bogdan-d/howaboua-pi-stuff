@@ -1,62 +1,140 @@
 #!/usr/bin/env node
-import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+	existsSync,
+	readdirSync,
+	readFileSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
 const changesetDir = join(root, ".changeset");
 const packagesDir = join(root, "packages");
-const aggregateNames = new Set(["@howaboua/pi-stuff", "@howaboua/pi-extensions", "@howaboua/pi-skills"]);
-const aggregateExcludedNames = new Set(["@howaboua/pi-codex-conversion", "@howaboua/pi-skill-omarchy-help"]);
-const generatedPath = join(changesetDir, "aggregate-bundles.md");
+const aggregateNames = new Set([
+	"@howaboua/pi-stuff",
+	"@howaboua/pi-extensions",
+	"@howaboua/pi-skills",
+]);
+const aggregateExcludedNames = new Set([
+	"@howaboua/pi-codex-conversion",
+	"@howaboua/pi-skill-omarchy-help",
+]);
+const generatedFiles = [
+	"aggregate-bundles.md",
+	"aggregate-stuff.md",
+	"aggregate-extensions.md",
+	"aggregate-skills.md",
+];
 
 function readJson(path) {
-  return JSON.parse(readFileSync(path, "utf8"));
+	return JSON.parse(readFileSync(path, "utf8"));
 }
 
-function parseChangesetPackages(text) {
-  const match = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return [];
-  return [...match[1].matchAll(/^['"]?([^'":\n]+)['"]?:\s*(patch|minor|major)$/gm)].map((m) => m[1].trim());
+function parseChangeset(text) {
+	const match = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+	if (!match) return { packages: [], body: "" };
+	const packages = [
+		...match[1].matchAll(/^["']?([^'":\n]+)["']?:\s*(patch|minor|major)$/gm),
+	].map((m) => m[1].trim());
+	return { packages, body: match[2].trim() };
+}
+
+function cleanBody(body) {
+	return body
+		.replace(/^#+\s+/gm, "")
+		.replace(/\s+/g, " ")
+		.trim()
+		.replace(/\.$/, "");
+}
+
+function writeAggregateChangeset(filename, packages, includedChanges) {
+	const frontmatter = packages.map((name) => `"${name}": patch`).join("\n");
+	const bullets = includedChanges
+		.map(
+			({ name, body }) =>
+				`- ${name}: ${cleanBody(body) || "Updated bundled package"}.`,
+		)
+		.join("\n");
+	const content = `---\n${frontmatter}\n---\n\nInclude bundled package updates:\n\n${bullets}\n`;
+	writeFileSync(join(changesetDir, filename), content);
+	console.log(`Wrote ${filename} for ${packages.join(", ")}.`);
 }
 
 if (!existsSync(changesetDir)) process.exit(0);
 
-const changedPackages = new Set();
+for (const file of generatedFiles) {
+	const path = join(changesetDir, file);
+	if (existsSync(path)) rmSync(path);
+}
+
+const changesByPackage = new Map();
 for (const file of readdirSync(changesetDir)) {
-  if (!file.endsWith(".md") || file === "README.md" || file === "aggregate-bundles.md") continue;
-  const text = readFileSync(join(changesetDir, file), "utf8");
-  for (const pkg of parseChangesetPackages(text)) changedPackages.add(pkg);
+	if (
+		!file.endsWith(".md") ||
+		file === "README.md" ||
+		generatedFiles.includes(file)
+	)
+		continue;
+	const text = readFileSync(join(changesetDir, file), "utf8");
+	const changeset = parseChangeset(text);
+	for (const pkg of changeset.packages)
+		changesByPackage.set(pkg, changeset.body);
 }
 
 const packageInfos = readdirSync(packagesDir)
-  .filter((dir) => existsSync(join(packagesDir, dir, "package.json")))
-  .map((dir) => ({ dir, pkg: readJson(join(packagesDir, dir, "package.json")) }));
+	.filter((dir) => existsSync(join(packagesDir, dir, "package.json")))
+	.map((dir) => ({
+		dir,
+		pkg: readJson(join(packagesDir, dir, "package.json")),
+	}));
 
-let needsStuff = false;
-let needsExtensions = false;
-let needsSkills = false;
+const changedExtensions = [];
+const changedSkills = [];
 
 for (const { pkg } of packageInfos) {
-  if (!changedPackages.has(pkg.name) || aggregateNames.has(pkg.name) || aggregateExcludedNames.has(pkg.name)) continue;
-  const hasExtensions = Array.isArray(pkg.pi?.extensions) && pkg.pi.extensions.length > 0;
-  const hasSkills = Array.isArray(pkg.pi?.skills) && pkg.pi.skills.length > 0;
-  if (hasExtensions || hasSkills) needsStuff = true;
-  if (hasExtensions) needsExtensions = true;
-  if (hasSkills) needsSkills = true;
+	if (
+		!changesByPackage.has(pkg.name) ||
+		aggregateNames.has(pkg.name) ||
+		aggregateExcludedNames.has(pkg.name)
+	)
+		continue;
+	const hasExtensions =
+		Array.isArray(pkg.pi?.extensions) && pkg.pi.extensions.length > 0;
+	const hasSkills = Array.isArray(pkg.pi?.skills) && pkg.pi.skills.length > 0;
+	const entry = { name: pkg.name, body: changesByPackage.get(pkg.name) };
+	if (hasExtensions) changedExtensions.push(entry);
+	if (hasSkills) changedSkills.push(entry);
 }
 
-const aggregateBumps = [];
-if (needsStuff && !changedPackages.has("@howaboua/pi-stuff")) aggregateBumps.push("@howaboua/pi-stuff");
-if (needsExtensions && !changedPackages.has("@howaboua/pi-extensions")) aggregateBumps.push("@howaboua/pi-extensions");
-if (needsSkills && !changedPackages.has("@howaboua/pi-skills")) aggregateBumps.push("@howaboua/pi-skills");
-
-if (aggregateBumps.length === 0) {
-  if (existsSync(generatedPath)) writeFileSync(generatedPath, "");
-  console.log("No aggregate package changeset needed.");
-  process.exit(0);
+const changedStuff = [...changedExtensions, ...changedSkills];
+let wrote = false;
+if (changedStuff.length > 0 && !changesByPackage.has("@howaboua/pi-stuff")) {
+	writeAggregateChangeset(
+		"aggregate-stuff.md",
+		["@howaboua/pi-stuff"],
+		changedStuff,
+	);
+	wrote = true;
+}
+if (
+	changedExtensions.length > 0 &&
+	!changesByPackage.has("@howaboua/pi-extensions")
+) {
+	writeAggregateChangeset(
+		"aggregate-extensions.md",
+		["@howaboua/pi-extensions"],
+		changedExtensions,
+	);
+	wrote = true;
+}
+if (changedSkills.length > 0 && !changesByPackage.has("@howaboua/pi-skills")) {
+	writeAggregateChangeset(
+		"aggregate-skills.md",
+		["@howaboua/pi-skills"],
+		changedSkills,
+	);
+	wrote = true;
 }
 
-const frontmatter = aggregateBumps.map((name) => `"${name}": patch`).join("\n");
-const body = `---\n${frontmatter}\n---\n\nBump aggregate Pi packages to include updated bundled packages.\n`;
-writeFileSync(generatedPath, body);
-console.log(`Wrote ${generatedPath} for ${aggregateBumps.join(", ")}.`);
+if (!wrote) console.log("No aggregate package changeset needed.");
