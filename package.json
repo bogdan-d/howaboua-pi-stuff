@@ -1,0 +1,40 @@
+{
+  "name": "@howaboua/pi-stuff-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "bun run scripts/workspaces.mjs check",
+    "typecheck": "bun run scripts/workspaces.mjs typecheck",
+    "test": "bun run scripts/workspaces.mjs test",
+    "pack:dry": "bun run scripts/workspaces.mjs pack:dry",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "check:changed": "bun run scripts/check-changed.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "@changesets/cli": "^2.29.0",
+    "@earendil-works/pi-agent-core": "^0.76.0",
+    "@earendil-works/pi-ai": "^0.76.0",
+    "@earendil-works/pi-coding-agent": "^0.76.0",
+    "@earendil-works/pi-tui": "^0.76.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.0",
+    "better-sqlite3": "^12.10.0",
+    "node-pty": "^1.1.0",
+    "oxfmt": "^0.35.0",
+    "partial-json": "^0.1.7",
+    "proxy-from-env": "1.1.0",
+    "tree-sitter-bash": "^0.25.1",
+    "tsx": "^4.20.5",
+    "typebox": "^1.1.24",
+    "typescript": "^5.9.3",
+    "web-tree-sitter": "^0.26.7",
+    "openai": "^6.26.0"
+  }
+}

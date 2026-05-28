@@ -1,0 +1,29 @@
+{
+  "name": "@howaboua/pi-skills",
+  "version": "0.1.0",
+  "description": "all Howaboua Pi skills",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "howaboua"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@howaboua/pi-markdown-workflows": "workspace:*"
+  },
+  "bundledDependencies": [
+    "@howaboua/pi-markdown-workflows"
+  ],
+  "files": [
+    "README.md"
+  ],
+  "pi": {
+    "skills": [
+      "node_modules/@howaboua/pi-markdown-workflows/skills"
+    ]
+  }
+}

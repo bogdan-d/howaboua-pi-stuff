@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { spawnSync } from "node:child_process";
+
+const base = process.env.CHANGED_BASE || process.argv[2] || "origin/main";
+const changedJson = spawnSync("bun", ["run", "scripts/changed-workspaces.mjs", base], { encoding: "utf8" });
+const packages = JSON.parse(changedJson.stdout || "[]");
+if (packages.length === 0) {
+  console.log("No changed workspace packages.");
+  process.exit(0);
+}
+let failed = false;
+for (const dir of packages) {
+  const cwd = join(process.cwd(), "packages", dir);
+  const pkg = JSON.parse(readFileSync(join(cwd, "package.json"), "utf8"));
+  if (!pkg.scripts?.check) continue;
+  console.log(`\n==> ${pkg.name}: check`);
+  const result = spawnSync("bun", ["run", "check"], { cwd, stdio: "inherit" });
+  if (result.status !== 0) failed = true;
+}
+process.exit(failed ? 1 : 0);

@@ -1,0 +1,65 @@
+{
+	"name": "@howaboua/pi-smart-btw",
+	"version": "0.1.1",
+	"description": "Async side-session questions for Pi with explicit injection into the main chat.",
+	"type": "module",
+	"license": "MIT",
+	"files": [
+		"index.ts",
+		"src",
+		"README.md",
+		"LICENSE",
+		"tsconfig.json",
+		"biome.json"
+	],
+	"scripts": {
+		"check": "npm run lint && npm run typecheck",
+		"pack:dry-run": "npm pack --dry-run",
+		"prepack": "npm run check",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check .",
+		"format": "biome check --write ."
+	},
+	"peerDependencies": {
+		"@earendil-works/pi-ai": "^0.76.0",
+		"@earendil-works/pi-coding-agent": "^0.76.0",
+		"@earendil-works/pi-tui": "^0.76.0"
+	},
+	"devDependencies": {
+		"@earendil-works/pi-ai": "^0.76.0",
+		"@earendil-works/pi-coding-agent": "^0.76.0",
+		"@earendil-works/pi-tui": "^0.76.0",
+		"@types/node": "^24.10.0",
+		"typescript": "^5.9.3",
+		"@biomejs/biome": "^2.4.16"
+	},
+	"pi": {
+		"extensions": [
+			"./index.ts"
+		]
+	},
+	"keywords": [
+		"pi-package",
+		"pi",
+		"pi-extension",
+		"side-session",
+		"btw",
+		"subagent",
+		"async"
+	],
+	"author": "Igor Warzocha",
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IgorWarzocha/pi-smart-btw.git"
+	},
+	"homepage": "https://github.com/IgorWarzocha/pi-smart-btw#readme",
+	"bugs": {
+		"url": "https://github.com/IgorWarzocha/pi-smart-btw/issues"
+	},
+	"engines": {
+		"node": ">=20.6.0"
+	}
+}
