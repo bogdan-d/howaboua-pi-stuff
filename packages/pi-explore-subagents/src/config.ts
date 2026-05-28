@@ -1,8 +1,10 @@
 import fs from "node:fs";
 import {
 	ALLOWED_THINKING,
-	CONFIG_PATH,
 	DEFAULT_CONFIG,
+	getAgentDir,
+	getConfigPath,
+	PACKAGE_CONFIG_PATH,
 	TOOL_NAME,
 } from "./constants.js";
 import type {
@@ -28,15 +30,44 @@ function normalizeConfig(
 	return { model, thinking };
 }
 
-export function readConfig(): Record<ExploreMode, Required<ExploreConfig>> {
-	let parsed: ExtensionConfig;
+function readPackageConfig(): Record<ExploreMode, Required<ExploreConfig>> {
+	let parsed: ExtensionConfig | undefined;
 	try {
 		parsed = JSON.parse(
-			fs.readFileSync(CONFIG_PATH, "utf8"),
+			fs.readFileSync(PACKAGE_CONFIG_PATH, "utf8"),
 		) as ExtensionConfig;
+	} catch {
+		parsed = undefined;
+	}
+
+	return {
+		shallow: normalizeConfig(parsed?.shallow, DEFAULT_CONFIG.shallow),
+		deep: normalizeConfig(parsed?.deep, DEFAULT_CONFIG.deep),
+	};
+}
+
+export function ensureConfigFile(): string {
+	const agentDir = getAgentDir();
+	const configPath = getConfigPath();
+	fs.mkdirSync(agentDir, { recursive: true });
+	if (!fs.existsSync(configPath)) {
+		fs.writeFileSync(
+			configPath,
+			`${JSON.stringify(readPackageConfig(), null, 2)}\n`,
+			"utf8",
+		);
+	}
+	return configPath;
+}
+
+export function readConfig(): Record<ExploreMode, Required<ExploreConfig>> {
+	let parsed: ExtensionConfig;
+	const configPath = ensureConfigFile();
+	try {
+		parsed = JSON.parse(fs.readFileSync(configPath, "utf8")) as ExtensionConfig;
 	} catch (error) {
 		throw new Error(
-			`Could not parse ${CONFIG_PATH}: ${error instanceof Error ? error.message : String(error)}`,
+			`Could not parse ${configPath}: ${error instanceof Error ? error.message : String(error)}`,
 		);
 	}
 
