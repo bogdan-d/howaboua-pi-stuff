@@ -1,5 +1,14 @@
 # @howaboua/pi-skills
 
+## 0.0.3
+
+### Patch Changes
+
+- Bump aggregate Pi packages to include updated bundled packages.
+
+- Updated dependencies [[`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be)]:
+  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes

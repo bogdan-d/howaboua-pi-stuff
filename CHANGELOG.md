@@ -29,6 +29,14 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-reasoning-tool/CHANGELOG.md)
 
+### @howaboua/pi-auto-trees — 0.1.4
+
+### Patch Changes
+
+- [#11](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/11) [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Show temporary UI feedback while `/end` summarizes back to the marker.
+
+[Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
+
 ### @howaboua/pi-codex-conversion — 1.5.17
 
 ### Patch Changes
@@ -37,19 +45,23 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-explore-subagents — 0.1.5
+### @howaboua/pi-explore-subagents — 0.1.6
 
 ### Patch Changes
 
-- [#1](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/1) [`d57f0cb`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/d57f0cbb5b92ce5cb7cf4736b6012c5ff0bebaae) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix TypeScript errors under the shared workspace typecheck settings.
+- [#11](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/11) [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Persist explore subagent config under the user agent directory, migrating existing package-local config on first use.
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.2
+### @howaboua/pi-extensions — 0.0.3
 
 ### Patch Changes
 
-- [#6](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/6) [`e793612`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/e793612fb32a4f7e418f5d28772e6de75a5c26ad) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix aggregate package resource paths so Pi can load installed dependency extensions and skills.
+- Bump aggregate Pi packages to include updated bundled packages.
+
+- Updated dependencies [[`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be), [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be)]:
+  - @howaboua/pi-explore-subagents@0.1.6
+  - @howaboua/pi-auto-trees@0.1.4
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -107,11 +119,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-skill-chrome-cdp/CHANGELOG.md)
 
-### @howaboua/pi-skill-gh-issue-pr-flow — 0.0.1
+### @howaboua/pi-skill-gh-issue-pr-flow — 0.0.2
 
 ### Patch Changes
 
-- [#1](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/1) [`f252da3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f252da342444236f06c6da3f7d92cbdab420d770) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Initial public skill packages from the Howaboua Pi Stuff monorepo.
+- [#11](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/11) [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Document file-based GitHub comment and PR body posting to avoid escaped newline formatting mistakes.
 
 [Full changelog](./packages/pi-skill-gh-issue-pr-flow/CHANGELOG.md)
 
@@ -139,11 +151,14 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-skill-skill-creator/CHANGELOG.md)
 
-### @howaboua/pi-skills — 0.0.2
+### @howaboua/pi-skills — 0.0.3
 
 ### Patch Changes
 
-- [#6](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/6) [`e793612`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/e793612fb32a4f7e418f5d28772e6de75a5c26ad) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix aggregate package resource paths so Pi can load installed dependency extensions and skills.
+- Bump aggregate Pi packages to include updated bundled packages.
+
+- Updated dependencies [[`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be)]:
+  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.2
 
 [Full changelog](./packages/pi-skills/CHANGELOG.md)
 
@@ -155,11 +170,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.2
+### @howaboua/pi-stuff — 0.0.3
 
 ### Patch Changes
 
-- [#6](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/6) [`e793612`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/e793612fb32a4f7e418f5d28772e6de75a5c26ad) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix aggregate package resource paths so Pi can load installed dependency extensions and skills.
+- Bump aggregate Pi packages to include updated bundled packages.
+
+- Updated dependencies [[`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be), [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be), [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be)]:
+  - @howaboua/pi-explore-subagents@0.1.6
+  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.2
+  - @howaboua/pi-auto-trees@0.1.4
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
