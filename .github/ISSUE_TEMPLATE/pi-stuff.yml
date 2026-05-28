@@ -1,6 +1,6 @@
 name: Pi Stuff issue
 description: Report a bug, rough edge, or small feature request.
-title: ""
+title: "[package]: "
 body:
   - type: dropdown
     id: package
