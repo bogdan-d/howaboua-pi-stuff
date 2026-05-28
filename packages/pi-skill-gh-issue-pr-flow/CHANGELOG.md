@@ -2,12 +2,12 @@
 
 ## 0.0.2
 
-### Patch Changes
+### Changes
 
 - [#11](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/11) [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Document file-based GitHub comment and PR body posting to avoid escaped newline formatting mistakes.
 
 ## 0.0.1
 
-### Patch Changes
+### Changes
 
 - [#1](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/1) [`f252da3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f252da342444236f06c6da3f7d92cbdab420d770) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Initial public skill packages from the Howaboua Pi Stuff monorepo.

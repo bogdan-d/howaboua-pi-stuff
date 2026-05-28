@@ -2,24 +2,27 @@
 
 ## 0.0.3
 
-### Patch Changes
+### Changes
 
-- Bump aggregate Pi packages to include updated bundled packages.
+- `@howaboua/pi-explore-subagents` now stores configuration in the user agent directory and migrates existing package-local config on first use.
+- `@howaboua/pi-auto-trees` now shows temporary `/end` progress feedback while summarising back to the marker.
+- `@howaboua/pi-skill-gh-issue-pr-flow` now documents safer file-based GitHub issue, PR, and comment body posting.
 
-- Updated dependencies [[`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be), [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be), [`78ac21f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/78ac21f443f2e14e00e0252b423b09182c31f0be)]:
-  - @howaboua/pi-explore-subagents@0.1.6
-  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.2
-  - @howaboua/pi-auto-trees@0.1.4
+### Updated bundled packages
+
+- `@howaboua/pi-explore-subagents@0.1.6`
+- `@howaboua/pi-auto-trees@0.1.4`
+- `@howaboua/pi-skill-gh-issue-pr-flow@0.0.2`
 
 ## 0.0.2
 
-### Patch Changes
+### Changes
 
 - [#6](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/6) [`e793612`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/e793612fb32a4f7e418f5d28772e6de75a5c26ad) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix aggregate package resource paths so Pi can load installed dependency extensions and skills.
 
 ## 0.0.1
 
-### Patch Changes
+### Changes
 
 - [`3c8c222`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3c8c2222bb8d907a85517dd2155f8ea77d2441fb) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Initial public release from the Howaboua Pi Stuff monorepo.
 
