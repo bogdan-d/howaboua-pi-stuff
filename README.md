@@ -8,14 +8,14 @@ Pi packages run with your local permissions. You can obviously trust me, a stran
 
 ## Packages
 
-Install any package by prefixing its package name with `pi install npm:@howaboua/`. For example:
+Install any package by prefixing its package name with `pi install npm:@howaboua/`:
 
 ```bash
-pi install npm:@howaboua/pi-codex-conversion
+pi install npm:@howaboua/<package>
 ```
 
 <table>
-<thead><tr><th>Install</th><th>Type</th><th>What it does</th></tr></thead>
+<thead><tr><th>Package</th><th>Type</th><th>What it does</th></tr></thead>
 <tbody>
 <tr>
 <td><strong>Bundles</strong><br><code>pi-stuff</code></td>
