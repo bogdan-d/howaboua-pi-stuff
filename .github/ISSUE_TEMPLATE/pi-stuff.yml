@@ -27,7 +27,7 @@ body:
     id: skill
     attributes:
       label: Skill name, if this is about a skill
-      description: Optional. Example: anti-ai-copy, chrome-cdp, omarchy-help.
+      description: "Optional. Example: anti-ai-copy, chrome-cdp, omarchy-help."
       placeholder: anti-ai-copy
 
   - type: dropdown
@@ -59,7 +59,7 @@ body:
     id: repro
     attributes:
       label: Quick repro, if you have one
-      description: Commands, prompts, config snippets, screenshots, or links are all useful. Leave blank if it is more of a vibe/request.
+      description: "Commands, prompts, config snippets, screenshots, or links are all useful. Leave blank if it is more of a vibe/request."
       placeholder: |
         1. Install ...
         2. Run ...
