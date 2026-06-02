@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.7
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-auto-reasoning-tool: Restore reasoning to the current agent turn's starting level instead of reusing the first level captured after extension load.
+
+- Updated dependencies [[`008e017`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/008e01742bad5d743d23f6f445d8defb04610ee3)]:
+  - @howaboua/pi-auto-reasoning-tool@0.1.6
+
 ## 0.0.6
 
 ### Changes
