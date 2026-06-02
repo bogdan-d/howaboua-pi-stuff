@@ -23,9 +23,9 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 ### @howaboua/pi-auto-reasoning-tool — 0.1.6
 
-- Restored reasoning to the session's starting level instead of always resetting to `low`.
-- Preserved agent-selected reasoning across retryable provider and transport failures.
-- Added GitHub Sponsor button config.
+### Changes
+
+- [#24](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/24) [`008e017`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/008e01742bad5d743d23f6f445d8defb04610ee3) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Restore reasoning to the current agent turn's starting level instead of reusing the first level captured after extension load.
 
 [Full changelog](./packages/pi-auto-reasoning-tool/CHANGELOG.md)
 
@@ -55,20 +55,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.6
+### @howaboua/pi-extensions — 0.0.7
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Fix review-loop marker placement so the advisory preface remains in history instead of being pasted into the prompt during loop summarization, send review findings as custom review messages in all paths, harden smart-btw slot bounds and answer handling, improve subdirectory context discovery from shell output, and remove a missing file from the skills aggregate package manifest.
-  - @howaboua/pi-markdown-workflows: Fix review-loop marker placement so the advisory preface remains in history instead of being pasted into the prompt during loop summarization, send review findings as custom review messages in all paths, harden smart-btw slot bounds and answer handling, improve subdirectory context discovery from shell output, and remove a missing file from the skills aggregate package manifest.
-  - @howaboua/pi-smart-btw: Multi-slot BTW sessions with JSONL restore, tombstones, inject-and-clear, and configurable alt shortcuts.
+  - @howaboua/pi-auto-reasoning-tool: Restore reasoning to the current agent turn's starting level instead of reusing the first level captured after extension load.
 
-- Updated dependencies [[`cf0ca88`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/cf0ca88feee5175cebda37043b0a0bfb5ad913d2), [`cf0ca88`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/cf0ca88feee5175cebda37043b0a0bfb5ad913d2)]:
-  - @howaboua/pi-subagent-review@0.2.2
-  - @howaboua/pi-smart-btw@0.2.0
-  - @howaboua/pi-markdown-workflows@0.2.12
+- Updated dependencies [[`008e017`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/008e01742bad5d743d23f6f445d8defb04610ee3)]:
+  - @howaboua/pi-auto-reasoning-tool@0.1.6
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -172,20 +168,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.6
+### @howaboua/pi-stuff — 0.0.7
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Fix review-loop marker placement so the advisory preface remains in history instead of being pasted into the prompt during loop summarization, send review findings as custom review messages in all paths, harden smart-btw slot bounds and answer handling, improve subdirectory context discovery from shell output, and remove a missing file from the skills aggregate package manifest.
-  - @howaboua/pi-markdown-workflows: Fix review-loop marker placement so the advisory preface remains in history instead of being pasted into the prompt during loop summarization, send review findings as custom review messages in all paths, harden smart-btw slot bounds and answer handling, improve subdirectory context discovery from shell output, and remove a missing file from the skills aggregate package manifest.
-  - @howaboua/pi-smart-btw: Multi-slot BTW sessions with JSONL restore, tombstones, inject-and-clear, and configurable alt shortcuts.
+  - @howaboua/pi-auto-reasoning-tool: Restore reasoning to the current agent turn's starting level instead of reusing the first level captured after extension load.
 
-- Updated dependencies [[`cf0ca88`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/cf0ca88feee5175cebda37043b0a0bfb5ad913d2), [`cf0ca88`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/cf0ca88feee5175cebda37043b0a0bfb5ad913d2)]:
-  - @howaboua/pi-subagent-review@0.2.2
-  - @howaboua/pi-smart-btw@0.2.0
-  - @howaboua/pi-markdown-workflows@0.2.12
+- Updated dependencies [[`008e017`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/008e01742bad5d743d23f6f445d8defb04610ee3)]:
+  - @howaboua/pi-auto-reasoning-tool@0.1.6
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
