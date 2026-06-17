@@ -41,25 +41,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.1.0
+### @howaboua/pi-codex-conversion — 2.1.1
 
 ### Changes
 
-- [#50](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/50) [`a9bbba8`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/a9bbba894a04bc43b4af9e31d68bd3323617b1b8) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add Codex reset-credit count and Ctrl+R reset action in the Usage tab.
-
-  Theme the Codex adapter status label with Pi's active accent color and dim the status details.
-
-  Show collapsed shell output previews and capped patch diffs, including PATH-mode `apply_patch` previews and native-style PATH tool call labels inside `exec_command`.
-
-  Preserve raw shell behavior for PATH tool pipelines/redirections and use the active `exec_command` workdir for PATH `apply_patch` previews.
-
-  Keep segmented PATH `apply_patch` rendering after failures while showing the actual shell error output instead of an optimistic diff preview.
-
-  Surface captured `exec_bridge` startup stderr in `exec_command` failures.
-
-  Document building bundled Codex tools from a Git checkout for older Linux compatibility.
-
-  Update Pi development dependencies to 0.79.4, match Pi's Codex SSE timeout, and stop shrinking Codex model context windows.
+- [#53](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/53) [`4c2e803`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4c2e803f3cc9d9fe7daa0e54f4548af536c8b472) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Use OpenAI Codex subscription auth for Codex-backed web and image tools on all models, route image generation through the Codex image endpoints, and add optional image descriptions for text-only models.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
