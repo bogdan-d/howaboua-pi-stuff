@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.14
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-markdown-workflows: Refines the standalone and bundled skill creation guidance, and hardens the checker with Pi limits and supporting-file suggestions.
+
+- Updated dependencies [[`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9)]:
+  - @howaboua/pi-markdown-workflows@0.2.16
+
 ## 0.0.13
 
 ### Changes

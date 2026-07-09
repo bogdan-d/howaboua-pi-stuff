@@ -1,5 +1,11 @@
 # @howaboua/pi-markdown-workflows
 
+## 0.2.16
+
+### Changes
+
+- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Refines the standalone and bundled skill creation guidance, and hardens the checker with Pi limits and supporting-file suggestions.
+
 ## 0.2.15
 
 ### Changes
