@@ -1,5 +1,20 @@
 # @howaboua/pi-stuff
 
+## 0.0.16
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-smart-btw: Uses GPT-5.6 Luna for side-session questions by default.
+  - @howaboua/pi-subagent-review: Uses GPT-5.6 Sol for reviews and GPT-5.6 Luna for conversation summaries by default.
+  - @howaboua/pi-explore-subagents: Uses GPT-5.6 Luna for shallow discovery and GPT-5.6 Terra for deep discovery by default.
+
+- Updated dependencies [[`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23)]:
+  - @howaboua/pi-explore-subagents@0.1.12
+  - @howaboua/pi-subagent-review@0.2.7
+  - @howaboua/pi-smart-btw@0.2.4
+
 ## 0.0.15
 
 ### Changes
