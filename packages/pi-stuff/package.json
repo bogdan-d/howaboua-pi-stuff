@@ -1,6 +1,6 @@
 {
 	"name": "@howaboua/pi-stuff",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"description": "all Howaboua Pi extensions and skills",
 	"type": "module",
 	"keywords": [
@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@howaboua/pi-auto-reasoning-tool": "0.1.9",
 		"@howaboua/pi-auto-trees": "0.1.8",
-		"@howaboua/pi-explore-subagents": "0.1.11",
+		"@howaboua/pi-explore-subagents": "0.1.12",
 		"@howaboua/pi-markdown-workflows": "0.2.17",
 		"@howaboua/pi-memories": "0.1.3",
 		"@howaboua/pi-semantic-grep": "0.1.16",
@@ -27,8 +27,8 @@
 		"@howaboua/pi-skill-model-facing-api-design": "0.0.2",
 		"@howaboua/pi-skill-project-reference-research": "0.0.2",
 		"@howaboua/pi-skill-skill-creator": "0.0.3",
-		"@howaboua/pi-smart-btw": "0.2.3",
-		"@howaboua/pi-subagent-review": "0.2.6",
+		"@howaboua/pi-smart-btw": "0.2.4",
+		"@howaboua/pi-subagent-review": "0.2.7",
 		"@howaboua/pi-vent": "0.2.9"
 	},
 	"files": [
