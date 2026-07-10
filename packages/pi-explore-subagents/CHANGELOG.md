@@ -1,5 +1,11 @@
 # @howaboua/pi-explore-subagents
 
+## 0.1.11
+
+### Changes
+
+- [#77](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/77) [`4be919f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4be919fea3c8ef6aba79f4a66907bc80d30908d4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses Pi 0.80.6 `agent_settled` completion, accepts max thinking configs, and keeps active subagent work free of wall-clock limits.
+
 ## 0.1.10
 
 ### Changes
