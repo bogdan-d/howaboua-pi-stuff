@@ -37,13 +37,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.1.6
+### @howaboua/pi-codex-conversion — 2.1.7
 
 ### Changes
 
-- [#69](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/69) [`8b8ddb4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8b8ddb47812a6033b01f66e5442f282b4dc84d44) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fixes PATH-mode apply_patch previews with trailing shell commands and keeps PATH web_run/imagegen commands on the long wait path.
-
-- [#69](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/69) [`8b8ddb4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8b8ddb47812a6033b01f66e5442f282b4dc84d44) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Updates the Codex provider compatibility pass for Pi 0.80.1.
+- [#82](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/82) [`4b52058`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4b52058203bc119e1cd5b212d9fa7471a067d752) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Syncs the Codex provider with Pi 0.80.6 and uses GPT-5.6 Luna by default for web search, image descriptions, and native compaction. Adds the GPT-5.6 helper model choices, max reasoning, zstd SSE requests, current Responses usage accounting, session/thread identity, stale WebSocket rotation, prewarming and raw-item continuation, per-turn Codex sticky routing, validated opt-in Responses Lite for GPT-5.6 turns and native compaction, a provider sync checklist, and the current Codex apply-patch engine behind Pi's local-only filesystem and structured-output adapters. Keeps the background shell widget TUI-only so RPC sessions do not access an uninitialized terminal theme. Publishes a precompiled Node 22-compatible extension entrypoint, built by release automation, and lazily initializes optional parsers/tokenizers to reduce Pi startup time. Splits extension registration, runtime lifecycle, tools, events, and UI into owned modules and tightens provider adapter contracts. Resolves compaction context and explicit reasoning limits from the configured compaction model rather than the active chat model.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
