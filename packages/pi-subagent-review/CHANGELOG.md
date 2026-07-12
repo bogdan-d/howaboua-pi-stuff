@@ -1,5 +1,11 @@
 # @howaboua/pi-subagent-review
 
+## 0.2.9
+
+### Changes
+
+- [#97](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/97) [`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
+
 ## 0.2.8
 
 ### Changes
