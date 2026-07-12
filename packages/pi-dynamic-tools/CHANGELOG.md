@@ -1,5 +1,11 @@
 # @howaboua/pi-dynamic-tools
 
+## 0.0.4
+
+### Changes
+
+- [#90](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/90) [`3f6d93b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3f6d93b44a411ef75370f84069f35368e850ae17) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Guide long-running cells away from frequent model-driven polling.
+
 ## 0.0.3
 
 ### Changes

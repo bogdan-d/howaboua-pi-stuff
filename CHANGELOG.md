@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-dynamic-tools — 0.0.3
+### @howaboua/pi-dynamic-tools — 0.0.4
 
 ### Changes
 
-- [#88](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/88) [`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Require concise usage contracts for promoted and deferred dynamic tools.
+- [#90](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/90) [`3f6d93b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3f6d93b44a411ef75370f84069f35368e850ae17) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Guide long-running cells away from frequent model-driven polling.
 
 [Full changelog](./packages/pi-dynamic-tools/CHANGELOG.md)
 
@@ -61,16 +61,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.19
+### @howaboua/pi-extensions — 0.0.20
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Require concise usage contracts for promoted and deferred dynamic tools.
+  - @howaboua/pi-dynamic-tools: Guide long-running cells away from frequent model-driven polling.
 
-- Updated dependencies [[`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46)]:
-  - @howaboua/pi-dynamic-tools@0.0.3
+- Updated dependencies [[`3f6d93b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3f6d93b44a411ef75370f84069f35368e850ae17)]:
+  - @howaboua/pi-dynamic-tools@0.0.4
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -205,16 +205,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.19
+### @howaboua/pi-stuff — 0.0.20
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Require concise usage contracts for promoted and deferred dynamic tools.
+  - @howaboua/pi-dynamic-tools: Guide long-running cells away from frequent model-driven polling.
 
-- Updated dependencies [[`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46)]:
-  - @howaboua/pi-dynamic-tools@0.0.3
+- Updated dependencies [[`3f6d93b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3f6d93b44a411ef75370f84069f35368e850ae17)]:
+  - @howaboua/pi-dynamic-tools@0.0.4
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
