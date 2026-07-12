@@ -61,22 +61,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.21
+### @howaboua/pi-extensions — 0.0.22
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-markdown-workflows: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
-  - @howaboua/pi-subagent-review: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
-  - @howaboua/pi-dynamic-tools: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
-  - @howaboua/pi-semantic-grep: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+  - @howaboua/pi-subagent-review: Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
 
-- Updated dependencies [[`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d), [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d)]:
-  - @howaboua/pi-dynamic-tools@0.0.5
-  - @howaboua/pi-subagent-review@0.2.8
-  - @howaboua/pi-semantic-grep@0.1.17
-  - @howaboua/pi-markdown-workflows@0.2.18
+- Updated dependencies [[`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5)]:
+  - @howaboua/pi-subagent-review@0.2.9
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -211,30 +205,24 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.21
+### @howaboua/pi-stuff — 0.0.22
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-markdown-workflows: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
-  - @howaboua/pi-subagent-review: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
-  - @howaboua/pi-dynamic-tools: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
-  - @howaboua/pi-semantic-grep: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+  - @howaboua/pi-subagent-review: Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
 
-- Updated dependencies [[`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d), [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d)]:
-  - @howaboua/pi-dynamic-tools@0.0.5
-  - @howaboua/pi-subagent-review@0.2.8
-  - @howaboua/pi-semantic-grep@0.1.17
-  - @howaboua/pi-markdown-workflows@0.2.18
+- Updated dependencies [[`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5)]:
+  - @howaboua/pi-subagent-review@0.2.9
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
-### @howaboua/pi-subagent-review — 0.2.8
+### @howaboua/pi-subagent-review — 0.2.9
 
 ### Changes
 
-- [#92](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/92) [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
+- [#97](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/97) [`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
 
 [Full changelog](./packages/pi-subagent-review/CHANGELOG.md)
 

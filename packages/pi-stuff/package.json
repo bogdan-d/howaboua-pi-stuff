@@ -1,6 +1,6 @@
 {
 	"name": "@howaboua/pi-stuff",
-	"version": "0.0.21",
+	"version": "0.0.22",
 	"description": "all Howaboua Pi extensions and skills",
 	"type": "module",
 	"keywords": [
@@ -29,7 +29,7 @@
 		"@howaboua/pi-skill-project-reference-research": "0.0.2",
 		"@howaboua/pi-skill-skill-creator": "0.0.3",
 		"@howaboua/pi-smart-btw": "0.2.4",
-		"@howaboua/pi-subagent-review": "0.2.8",
+		"@howaboua/pi-subagent-review": "0.2.9",
 		"@howaboua/pi-vent": "0.2.9"
 	},
 	"files": [
