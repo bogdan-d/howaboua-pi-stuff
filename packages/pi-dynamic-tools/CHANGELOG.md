@@ -1,5 +1,11 @@
 # @howaboua/pi-dynamic-tools
 
+## 0.0.3
+
+### Changes
+
+- [#88](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/88) [`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Require concise usage contracts for promoted and deferred dynamic tools.
+
 ## 0.0.2
 
 ### Changes
