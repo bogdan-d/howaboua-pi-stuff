@@ -45,6 +45,14 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
+### @howaboua/pi-dynamic-tools — 0.0.1
+
+### Changes
+
+- [#84](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/84) [`8b674e8`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8b674e8e7ca8727d48361c5de8fcc6320ceefa77) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - 0.0.1 initial release with TOML-defined dynamic tools, Codex code mode, and bundled `spawn_agent` and `port_info` examples
+
+[Full changelog](./packages/pi-dynamic-tools/CHANGELOG.md)
+
 ### @howaboua/pi-explore-subagents — 0.1.12
 
 ### Changes
@@ -53,20 +61,13 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.16
+### @howaboua/pi-extensions — 0.0.17
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-smart-btw: Uses GPT-5.6 Luna for side-session questions by default.
-  - @howaboua/pi-subagent-review: Uses GPT-5.6 Sol for reviews and GPT-5.6 Luna for conversation summaries by default.
-  - @howaboua/pi-explore-subagents: Uses GPT-5.6 Luna for shallow discovery and GPT-5.6 Terra for deep discovery by default.
-
-- Updated dependencies [[`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23)]:
-  - @howaboua/pi-explore-subagents@0.1.12
-  - @howaboua/pi-subagent-review@0.2.7
-  - @howaboua/pi-smart-btw@0.2.4
+  - @howaboua/pi-dynamic-tools: 0.0.1 initial release with TOML-defined dynamic tools, Codex code mode, and bundled `spawn_agent` and `port_info` examples.
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -201,20 +202,13 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.16
+### @howaboua/pi-stuff — 0.0.17
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-smart-btw: Uses GPT-5.6 Luna for side-session questions by default.
-  - @howaboua/pi-subagent-review: Uses GPT-5.6 Sol for reviews and GPT-5.6 Luna for conversation summaries by default.
-  - @howaboua/pi-explore-subagents: Uses GPT-5.6 Luna for shallow discovery and GPT-5.6 Terra for deep discovery by default.
-
-- Updated dependencies [[`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23), [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23)]:
-  - @howaboua/pi-explore-subagents@0.1.12
-  - @howaboua/pi-subagent-review@0.2.7
-  - @howaboua/pi-smart-btw@0.2.4
+  - @howaboua/pi-dynamic-tools: 0.0.1 initial release with TOML-defined dynamic tools, Codex code mode, and bundled `spawn_agent` and `port_info` examples.
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
