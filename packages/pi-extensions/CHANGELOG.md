@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.18
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-dynamic-tools: Always register `exec` and `wait`, rediscover TOML definitions during live sessions, and avoid duplicate registration when loaded directly and through an aggregate package.
+
+- Updated dependencies [[`c75e8ed`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c75e8ed3696c4ba94b73ab91dfe9dfe3aea74c0f)]:
+  - @howaboua/pi-dynamic-tools@0.0.2
+
 ## 0.0.17
 
 ### Changes

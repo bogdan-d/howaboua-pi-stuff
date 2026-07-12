@@ -1,5 +1,11 @@
 # @howaboua/pi-dynamic-tools
 
+## 0.0.2
+
+### Changes
+
+- [#86](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/86) [`c75e8ed`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c75e8ed3696c4ba94b73ab91dfe9dfe3aea74c0f) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Always register `exec` and `wait`, rediscover TOML definitions during live sessions, and avoid duplicate registration when loaded directly and through an aggregate package.
+
 ## 0.0.1
 
 ### Changes
