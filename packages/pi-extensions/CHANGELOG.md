@@ -1,5 +1,13 @@
 # @howaboua/pi-extensions
 
+## 0.0.17
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-dynamic-tools: 0.0.1 initial release with TOML-defined dynamic tools, Codex code mode, and bundled `spawn_agent` and `port_info` examples.
+
 ## 0.0.16
 
 ### Changes
