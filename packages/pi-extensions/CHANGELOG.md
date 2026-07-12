@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.20
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-dynamic-tools: Guide long-running cells away from frequent model-driven polling.
+
+- Updated dependencies [[`3f6d93b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/3f6d93b44a411ef75370f84069f35368e850ae17)]:
+  - @howaboua/pi-dynamic-tools@0.0.4
+
 ## 0.0.19
 
 ### Changes
