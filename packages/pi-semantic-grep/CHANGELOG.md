@@ -1,5 +1,11 @@
 # @howaboua/pi-semantic-grep
 
+## 0.1.17
+
+### Changes
+
+- [#92](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/92) [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+
 ## 0.1.16
 
 ### Changes

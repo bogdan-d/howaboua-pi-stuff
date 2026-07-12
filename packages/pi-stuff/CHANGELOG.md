@@ -1,5 +1,22 @@
 # @howaboua/pi-stuff
 
+## 0.0.21
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-markdown-workflows: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+  - @howaboua/pi-subagent-review: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
+  - @howaboua/pi-dynamic-tools: Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
+  - @howaboua/pi-semantic-grep: Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+
+- Updated dependencies [[`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d), [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d)]:
+  - @howaboua/pi-dynamic-tools@0.0.5
+  - @howaboua/pi-subagent-review@0.2.8
+  - @howaboua/pi-semantic-grep@0.1.17
+  - @howaboua/pi-markdown-workflows@0.2.18
+
 ## 0.0.20
 
 ### Changes
