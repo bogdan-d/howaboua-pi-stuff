@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-dynamic-tools — 0.0.2
+### @howaboua/pi-dynamic-tools — 0.0.3
 
 ### Changes
 
-- [#86](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/86) [`c75e8ed`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c75e8ed3696c4ba94b73ab91dfe9dfe3aea74c0f) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Always register `exec` and `wait`, rediscover TOML definitions during live sessions, and avoid duplicate registration when loaded directly and through an aggregate package.
+- [#88](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/88) [`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Require concise usage contracts for promoted and deferred dynamic tools.
 
 [Full changelog](./packages/pi-dynamic-tools/CHANGELOG.md)
 
@@ -61,16 +61,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.18
+### @howaboua/pi-extensions — 0.0.19
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Always register `exec` and `wait`, rediscover TOML definitions during live sessions, and avoid duplicate registration when loaded directly and through an aggregate package.
+  - @howaboua/pi-dynamic-tools: Require concise usage contracts for promoted and deferred dynamic tools.
 
-- Updated dependencies [[`c75e8ed`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c75e8ed3696c4ba94b73ab91dfe9dfe3aea74c0f)]:
-  - @howaboua/pi-dynamic-tools@0.0.2
+- Updated dependencies [[`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46)]:
+  - @howaboua/pi-dynamic-tools@0.0.3
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -205,16 +205,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.18
+### @howaboua/pi-stuff — 0.0.19
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Always register `exec` and `wait`, rediscover TOML definitions during live sessions, and avoid duplicate registration when loaded directly and through an aggregate package.
+  - @howaboua/pi-dynamic-tools: Require concise usage contracts for promoted and deferred dynamic tools.
 
-- Updated dependencies [[`c75e8ed`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c75e8ed3696c4ba94b73ab91dfe9dfe3aea74c0f)]:
-  - @howaboua/pi-dynamic-tools@0.0.2
+- Updated dependencies [[`6c9509a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/6c9509ac0f52fa6d5c59538dc763f8f61fd83e46)]:
+  - @howaboua/pi-dynamic-tools@0.0.3
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
