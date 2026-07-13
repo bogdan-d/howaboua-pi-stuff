@@ -37,11 +37,13 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.0
+### @howaboua/pi-codex-conversion — 2.2.1
 
 ### Changes
 
-- [#94](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/94) [`a820d16`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/a820d161749acfa010b1212cef40cb51efa5e023) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add GPT-5.6 Code Mode with the Responses Lite transport, a freeform `exec` and `wait` surface, Codex-compatible nested patch/web/image tools, schema-free PATH tools, deferred custom TOML tools with bundled opt-in templates, and configurable Codex-style or detailed nested-tool rendering.
+- [#100](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/100) [`14cfe97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/14cfe97fcde447b9981d2ab755fcf65f1cc71ecf) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Let bundled Code Mode spawn agents inherit the parent Codex extension and active tool surface.
+
+- [#100](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/100) [`14cfe97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/14cfe97fcde447b9981d2ab755fcf65f1cc71ecf) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Restore GPT-5.6 Code Mode tools after Pi reloads extensions or switches sessions.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
