@@ -1,5 +1,34 @@
 # @howaboua/pi-extensions
 
+## 0.0.23
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-markdown-workflows: Load nested AGENTS.md context from successful pi-codex Code Mode tool traces.
+  - @howaboua/pi-auto-reasoning-tool: Tighten the change_reasoning agent contract and clarify responses at the user's minimum.
+  - @howaboua/pi-auto-trees: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-smart-btw: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-subagent-review: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-vent: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-dynamic-tools: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-memories: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-explore-subagents: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-semantic-grep: Rewrite package documentation around current installation, configuration, usage, and behavior.
+
+- Updated dependencies [[`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d)]:
+  - @howaboua/pi-markdown-workflows@0.2.19
+  - @howaboua/pi-auto-trees@0.1.9
+  - @howaboua/pi-dynamic-tools@0.0.6
+  - @howaboua/pi-explore-subagents@0.1.13
+  - @howaboua/pi-memories@0.1.4
+  - @howaboua/pi-semantic-grep@0.1.18
+  - @howaboua/pi-smart-btw@0.2.5
+  - @howaboua/pi-subagent-review@0.2.10
+  - @howaboua/pi-vent@0.2.10
+  - @howaboua/pi-auto-reasoning-tool@0.1.10
+
 ## 0.0.22
 
 ### Changes

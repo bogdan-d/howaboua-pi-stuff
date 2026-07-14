@@ -1,5 +1,11 @@
 # @howaboua/pi-skill-model-facing-api-design
 
+## 0.0.3
+
+### Changes
+
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
+
 ## 0.0.2
 
 ### Changes
