@@ -21,216 +21,268 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 ## Latest package changelogs
 
-### @howaboua/pi-auto-reasoning-tool — 0.1.9
+### @howaboua/pi-auto-reasoning-tool — 0.1.10
 
 ### Changes
 
-- [#77](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/77) [`4be919f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4be919fea3c8ef6aba79f4a66907bc80d30908d4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserves the user's reasoning floor through Pi 0.80.6 retries, compaction, and queued continuations while keeping autonomous choices capped at high.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Tighten the change_reasoning agent contract and clarify responses at the user's minimum.
 
 [Full changelog](./packages/pi-auto-reasoning-tool/CHANGELOG.md)
 
-### @howaboua/pi-auto-trees — 0.1.8
+### @howaboua/pi-auto-trees — 0.1.9
 
 ### Changes
 
-- [#77](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/77) [`4be919f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4be919fea3c8ef6aba79f4a66907bc80d30908d4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Pins compatibility checks to Pi 0.80.6 and verifies current session, TUI, tool, and file-mutation APIs.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.2
+### @howaboua/pi-codex-conversion — 2.2.3
 
 ### Changes
 
-- [#104](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/104) [`819bf9c`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/819bf9c0a2f72a1d9131c50ebedafe354f67cf3f) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserve Codex prompt caches when extensions activate tools dynamically and pass through explicit tool choice on Pi 0.80.7.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-dynamic-tools — 0.0.5
+### @howaboua/pi-dynamic-tools — 0.0.6
 
 ### Changes
 
-- [#92](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/92) [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds bundled promoted examples for subagents, vent logging, workflow creation, and semantic grep. Subagent prompts now explicitly require each subagent to perform its assigned role without further delegation.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-dynamic-tools/CHANGELOG.md)
 
-### @howaboua/pi-explore-subagents — 0.1.12
+### @howaboua/pi-explore-subagents — 0.1.13
 
 ### Changes
 
-- [#79](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/79) [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses GPT-5.6 Luna for shallow discovery and GPT-5.6 Terra for deep discovery by default.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.22
+### @howaboua/pi-extensions — 0.0.23
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
+  - @howaboua/pi-markdown-workflows: Load nested AGENTS.md context from successful pi-codex Code Mode tool traces.
+  - @howaboua/pi-auto-reasoning-tool: Tighten the change_reasoning agent contract and clarify responses at the user's minimum.
+  - @howaboua/pi-auto-trees: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-smart-btw: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-subagent-review: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-vent: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-dynamic-tools: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-memories: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-explore-subagents: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-semantic-grep: Rewrite package documentation around current installation, configuration, usage, and behavior.
 
-- Updated dependencies [[`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5)]:
-  - @howaboua/pi-subagent-review@0.2.9
+- Updated dependencies [[`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d)]:
+  - @howaboua/pi-markdown-workflows@0.2.19
+  - @howaboua/pi-auto-trees@0.1.9
+  - @howaboua/pi-dynamic-tools@0.0.6
+  - @howaboua/pi-explore-subagents@0.1.13
+  - @howaboua/pi-memories@0.1.4
+  - @howaboua/pi-semantic-grep@0.1.18
+  - @howaboua/pi-smart-btw@0.2.5
+  - @howaboua/pi-subagent-review@0.2.10
+  - @howaboua/pi-vent@0.2.10
+  - @howaboua/pi-auto-reasoning-tool@0.1.10
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
-### @howaboua/pi-markdown-workflows — 0.2.18
+### @howaboua/pi-markdown-workflows — 0.2.19
 
 ### Changes
 
-- [#92](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/92) [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Load nested AGENTS.md context from successful pi-codex Code Mode tool traces.
 
 [Full changelog](./packages/pi-markdown-workflows/CHANGELOG.md)
 
-### @howaboua/pi-memories — 0.1.3
+### @howaboua/pi-memories — 0.1.4
 
 ### Changes
 
-- [#77](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/77) [`4be919f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4be919fea3c8ef6aba79f4a66907bc80d30908d4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Runs memory distillation only when Pi quits and accepts the Pi 0.80.6 max thinking level.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-memories/CHANGELOG.md)
 
-### @howaboua/pi-semantic-grep — 0.1.17
+### @howaboua/pi-semantic-grep — 0.1.18
 
 ### Changes
 
-- [#92](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/92) [`68ceda7`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/68ceda7ee01203df93d181cd940dc1b64d93739d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add a JSON `toolRegistration` setting that can hide the agent tool while keeping the rest of each extension active.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-semantic-grep/CHANGELOG.md)
 
-### @howaboua/pi-skill-agent-native-hardening — 0.0.3
+### @howaboua/pi-skill-agent-native-hardening — 0.0.4
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Makes scorecards and work lanes conditional, sharpens evidence-based architecture guidance, adds focused dependency safety guidance, and documents TypeScript 7 migration constraints.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-agent-native-hardening/CHANGELOG.md)
 
-### @howaboua/pi-skill-agents-md — 0.0.2
+### @howaboua/pi-skill-agents-md — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Refines AGENTS.md authoring around terse scoped instructions, README separation, and proactive nested maintenance.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-agents-md/CHANGELOG.md)
 
-### @howaboua/pi-skill-anti-ai-copy — 0.0.2
+### @howaboua/pi-skill-anti-ai-copy — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Expands the skill from copy editing into universal drafting, rewriting, and prose review, with genre-aware guidance and a broader AI writing trope reference.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-anti-ai-copy/CHANGELOG.md)
 
-### @howaboua/pi-skill-chrome-cdp — 0.0.2
+### @howaboua/pi-skill-chrome-cdp — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Clarifies practical browser authorization, rejects ambiguous or non-interactable targets, verifies editable focus and text insertion, improves CDP timeout guidance, and makes new-tab startup deterministic.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-chrome-cdp/CHANGELOG.md)
 
-### @howaboua/pi-skill-gh-issue-pr-flow — 0.0.4
+### @howaboua/pi-skill-gh-issue-pr-flow — 0.0.5
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Refines the GitHub workflow into a concise, mode-routed SOP while preserving release hygiene and exhaustive Codex review guidance.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-gh-issue-pr-flow/CHANGELOG.md)
 
-### @howaboua/pi-skill-model-facing-api-design — 0.0.2
+### @howaboua/pi-skill-model-facing-api-design — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Expands Pi tool API guidance to cover current-API migration gates, model-facing results, errors, truncation, and prompt metadata, and improves the token helper's detection and reporting.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-model-facing-api-design/CHANGELOG.md)
 
-### @howaboua/pi-skill-omarchy-help — 0.0.2
+### @howaboua/pi-skill-omarchy-help — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Expands Omarchy workstation help with command discovery, config ownership, and safe restart, refresh, update, theme, package, and recovery guidance.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-omarchy-help/CHANGELOG.md)
 
-### @howaboua/pi-skill-project-reference-research — 0.0.2
+### @howaboua/pi-skill-project-reference-research — 0.0.3
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Makes subagent delegation optional in project reference research, choosing direct or delegated inspection based on repository size, task scope, and context needs.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-project-reference-research/CHANGELOG.md)
 
-### @howaboua/pi-skill-skill-creator — 0.0.3
+### @howaboua/pi-skill-skill-creator — 0.0.4
 
 ### Changes
 
-- [#72](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/72) [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Refines the standalone and bundled skill creation guidance, and hardens the checker with Pi limits and supporting-file suggestions.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-skill-skill-creator/CHANGELOG.md)
 
-### @howaboua/pi-skills — 0.0.8
+### @howaboua/pi-skills — 0.0.9
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-skill-gh-issue-pr-flow: Refines the GitHub workflow into a concise, mode-routed SOP while preserving release hygiene and exhaustive Codex review guidance.
-  - @howaboua/pi-skill-chrome-cdp: Clarifies practical browser authorization, rejects ambiguous or non-interactable targets, verifies editable focus and text insertion, improves CDP timeout guidance, and makes new-tab startup deterministic.
-  - @howaboua/pi-skill-skill-creator: Refines the standalone and bundled skill creation guidance, and hardens the checker with Pi limits and supporting-file suggestions.
-  - @howaboua/pi-skill-project-reference-research: Makes subagent delegation optional in project reference research, choosing direct or delegated inspection based on repository size, task scope, and context needs.
-  - @howaboua/pi-skill-model-facing-api-design: Expands Pi tool API guidance to cover current-API migration gates, model-facing results, errors, truncation, and prompt metadata, and improves the token helper's detection and reporting.
-  - @howaboua/pi-skill-agent-native-hardening: Makes scorecards and work lanes conditional, sharpens evidence-based architecture guidance, adds focused dependency safety guidance, and documents TypeScript 7 migration constraints.
-  - @howaboua/pi-skill-agents-md: Refines AGENTS.md authoring around terse scoped instructions, README separation, and proactive nested maintenance.
-  - @howaboua/pi-skill-anti-ai-copy: Expands the skill from copy editing into universal drafting, rewriting, and prose review, with genre-aware guidance and a broader AI writing trope reference.
+  - @howaboua/pi-skill-gh-issue-pr-flow: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-chrome-cdp: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-skill-creator: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-project-reference-research: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-model-facing-api-design: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-agent-native-hardening: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-agents-md: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-anti-ai-copy: Rewrite package documentation around current installation, configuration, usage, and behavior.
 
-- Updated dependencies [[`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9), [`ff8d5cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/ff8d5cf9412ec07fea8b613f0aadc906c6c398f9)]:
-  - @howaboua/pi-skill-chrome-cdp@0.0.2
-  - @howaboua/pi-skill-project-reference-research@0.0.2
-  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.4
-  - @howaboua/pi-skill-anti-ai-copy@0.0.2
-  - @howaboua/pi-skill-model-facing-api-design@0.0.2
-  - @howaboua/pi-skill-agents-md@0.0.2
-  - @howaboua/pi-skill-skill-creator@0.0.3
-  - @howaboua/pi-skill-agent-native-hardening@0.0.3
+- Updated dependencies [[`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d)]:
+  - @howaboua/pi-skill-agent-native-hardening@0.0.4
+  - @howaboua/pi-skill-agents-md@0.0.3
+  - @howaboua/pi-skill-anti-ai-copy@0.0.3
+  - @howaboua/pi-skill-chrome-cdp@0.0.3
+  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.5
+  - @howaboua/pi-skill-model-facing-api-design@0.0.3
+  - @howaboua/pi-skill-project-reference-research@0.0.3
+  - @howaboua/pi-skill-skill-creator@0.0.4
 
 [Full changelog](./packages/pi-skills/CHANGELOG.md)
 
-### @howaboua/pi-smart-btw — 0.2.4
+### @howaboua/pi-smart-btw — 0.2.5
 
 ### Changes
 
-- [#79](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/79) [`dc0d253`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/dc0d25382e1b650e024cc235e23ea62117784e23) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses GPT-5.6 Luna for side-session questions by default.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.22
+### @howaboua/pi-stuff — 0.0.23
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
+  - @howaboua/pi-markdown-workflows: Load nested AGENTS.md context from successful pi-codex Code Mode tool traces.
+  - @howaboua/pi-auto-reasoning-tool: Tighten the change_reasoning agent contract and clarify responses at the user's minimum.
+  - @howaboua/pi-auto-trees: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-smart-btw: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-subagent-review: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-vent: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-dynamic-tools: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-memories: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-explore-subagents: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-semantic-grep: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-gh-issue-pr-flow: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-chrome-cdp: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-skill-creator: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-project-reference-research: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-model-facing-api-design: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-agent-native-hardening: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-agents-md: Rewrite package documentation around current installation, configuration, usage, and behavior.
+  - @howaboua/pi-skill-anti-ai-copy: Rewrite package documentation around current installation, configuration, usage, and behavior.
 
-- Updated dependencies [[`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5)]:
-  - @howaboua/pi-subagent-review@0.2.9
+- Updated dependencies [[`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d), [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d)]:
+  - @howaboua/pi-markdown-workflows@0.2.19
+  - @howaboua/pi-auto-trees@0.1.9
+  - @howaboua/pi-dynamic-tools@0.0.6
+  - @howaboua/pi-explore-subagents@0.1.13
+  - @howaboua/pi-memories@0.1.4
+  - @howaboua/pi-semantic-grep@0.1.18
+  - @howaboua/pi-skill-agent-native-hardening@0.0.4
+  - @howaboua/pi-skill-agents-md@0.0.3
+  - @howaboua/pi-skill-anti-ai-copy@0.0.3
+  - @howaboua/pi-skill-chrome-cdp@0.0.3
+  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.5
+  - @howaboua/pi-skill-model-facing-api-design@0.0.3
+  - @howaboua/pi-skill-project-reference-research@0.0.3
+  - @howaboua/pi-skill-skill-creator@0.0.4
+  - @howaboua/pi-smart-btw@0.2.5
+  - @howaboua/pi-subagent-review@0.2.10
+  - @howaboua/pi-vent@0.2.10
+  - @howaboua/pi-auto-reasoning-tool@0.1.10
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
-### @howaboua/pi-subagent-review — 0.2.9
+### @howaboua/pi-subagent-review — 0.2.10
 
 ### Changes
 
-- [#97](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/97) [`40ea35b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/40ea35bbdb8c0437b57bd0dc7ddc41dbc21d2cf5) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses Pi's compaction-aware active session entries when preparing review conversation summaries, preventing superseded history from overflowing the summary model.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-subagent-review/CHANGELOG.md)
 
-### @howaboua/pi-vent — 0.2.9
+### @howaboua/pi-vent — 0.2.10
 
 ### Changes
 
-- [#77](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/77) [`4be919f`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/4be919fea3c8ef6aba79f4a66907bc80d30908d4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Pins compatibility checks to Pi 0.80.6 and verifies current session, TUI, tool, and file-mutation APIs.
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-vent/CHANGELOG.md)
 

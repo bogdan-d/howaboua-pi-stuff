@@ -1,5 +1,11 @@
 # @howaboua/pi-markdown-workflows
 
+## 0.2.19
+
+### Changes
+
+- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Load nested AGENTS.md context from successful pi-codex Code Mode tool traces.
+
 ## 0.2.18
 
 ### Changes

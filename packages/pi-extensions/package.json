@@ -1,6 +1,6 @@
 {
 	"name": "@howaboua/pi-extensions",
-	"version": "0.0.22",
+	"version": "0.0.23",
 	"description": "all Howaboua Pi extensions",
 	"type": "module",
 	"keywords": [
@@ -13,16 +13,16 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@howaboua/pi-auto-reasoning-tool": "0.1.9",
-		"@howaboua/pi-auto-trees": "0.1.8",
-		"@howaboua/pi-dynamic-tools": "0.0.5",
-		"@howaboua/pi-explore-subagents": "0.1.12",
-		"@howaboua/pi-markdown-workflows": "0.2.18",
-		"@howaboua/pi-memories": "0.1.3",
-		"@howaboua/pi-semantic-grep": "0.1.17",
-		"@howaboua/pi-smart-btw": "0.2.4",
-		"@howaboua/pi-subagent-review": "0.2.9",
-		"@howaboua/pi-vent": "0.2.9"
+		"@howaboua/pi-auto-reasoning-tool": "0.1.10",
+		"@howaboua/pi-auto-trees": "0.1.9",
+		"@howaboua/pi-dynamic-tools": "0.0.6",
+		"@howaboua/pi-explore-subagents": "0.1.13",
+		"@howaboua/pi-markdown-workflows": "0.2.19",
+		"@howaboua/pi-memories": "0.1.4",
+		"@howaboua/pi-semantic-grep": "0.1.18",
+		"@howaboua/pi-smart-btw": "0.2.5",
+		"@howaboua/pi-subagent-review": "0.2.10",
+		"@howaboua/pi-vent": "0.2.10"
 	},
 	"files": [
 		"README.md",
