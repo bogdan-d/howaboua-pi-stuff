@@ -37,13 +37,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.1
+### @howaboua/pi-codex-conversion — 2.2.2
 
 ### Changes
 
-- [#100](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/100) [`14cfe97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/14cfe97fcde447b9981d2ab755fcf65f1cc71ecf) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Let bundled Code Mode spawn agents inherit the parent Codex extension and active tool surface.
-
-- [#100](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/100) [`14cfe97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/14cfe97fcde447b9981d2ab755fcf65f1cc71ecf) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Restore GPT-5.6 Code Mode tools after Pi reloads extensions or switches sessions.
+- [#104](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/104) [`819bf9c`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/819bf9c0a2f72a1d9131c50ebedafe354f67cf3f) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserve Codex prompt caches when extensions activate tools dynamically and pass through explicit tool choice on Pi 0.80.7.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
