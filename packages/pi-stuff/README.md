@@ -1,6 +1,6 @@
 # @howaboua/pi-stuff
 
-The full general-purpose bundle: all 11 extensions from `@howaboua/pi-extensions` and all 8 skills from `@howaboua/pi-skills`.
+The full general-purpose bundle: all 11 extensions from `@howaboua/pi-extensions`, pi-ask's prompt workflows, and all 8 skills from `@howaboua/pi-skills`.
 
 ## Install
 

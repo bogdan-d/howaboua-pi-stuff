@@ -14,6 +14,7 @@ import type {
 	PromptState,
 } from "./contracts.js";
 import {
+	clearCustomSelection,
 	createPromptState,
 	pickChoiceSelection,
 	promptStateResponded,
@@ -277,7 +278,8 @@ interface PromptInputOptions {
 	count: () => number;
 	pick: (index: number) => void;
 	refresh: () => void;
-	startEditing: (kind: EditingKind) => void;
+	selectOther: () => void;
+	startEditingComment: () => void;
 	state: AskUiState;
 }
 
@@ -289,7 +291,8 @@ function handleAskPromptInput(
 		count,
 		pick,
 		refresh,
-		startEditing,
+		selectOther,
+		startEditingComment,
 		state,
 	}: PromptInputOptions,
 ): void {
@@ -309,11 +312,11 @@ function handleAskPromptInput(
 	}
 	if (!matchesKey(data, Key.enter)) return;
 	if (state.focus === choices().length) {
-		startEditing("other");
+		selectOther();
 		return;
 	}
 	if (state.focus === choices().length + 1) {
-		startEditing("comment");
+		startEditingComment();
 		return;
 	}
 	pick(state.focus);
@@ -431,6 +434,17 @@ export async function askInTui(
 			);
 			refresh();
 		};
+		const selectOther = () => {
+			const prompt = current();
+			const promptState = currentPromptState();
+			if (!prompt || !promptState) return;
+			if (prompt.multiple && promptState.customEnabled) {
+				clearCustomSelection(promptState);
+				refresh();
+				return;
+			}
+			startEditing("other");
+		};
 		const advance = () => setTab(state.tab + 1);
 		const advanceWithDefault = () => {
 			if (!isReview() && !responded(state.tab)) saveCustom("");
@@ -478,7 +492,8 @@ export async function askInTui(
 				choices,
 				pick,
 				refresh,
-				startEditing,
+				selectOther,
+				startEditingComment: () => startEditing("comment"),
 				state,
 			});
 		};

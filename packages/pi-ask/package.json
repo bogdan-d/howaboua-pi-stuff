@@ -40,9 +40,6 @@
 	"pi": {
 		"extensions": [
 			"./index.ts"
-		],
-		"prompts": [
-			"./prompts"
 		]
 	},
 	"peerDependencies": {

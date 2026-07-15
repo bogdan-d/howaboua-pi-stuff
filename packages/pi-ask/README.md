@@ -27,6 +27,17 @@ For work only you can complete—sign-in, authorization, hardware access, or ano
 - `/fold [report]` turns a long report or structured list into one interactive disposition prompt per item.
 - `/grill [idea]` investigates an idea, asks successive decisions, and keeps the agreed plan in `docs/`.
 
+Both templates are enabled by default. The extension creates `~/.pi/agent/ask.json` on first load:
+
+```json
+{
+  "grill": true,
+  "fold": true
+}
+```
+
+Set either value to `false`, then run `/reload`, to hide that template. The same configuration applies when pi-ask is installed through `@howaboua/pi-extensions` or `@howaboua/pi-stuff`.
+
 ## TUI controls
 
 - `Up` / `Down` — move through choices, free text, and comments

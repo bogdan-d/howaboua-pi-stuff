@@ -72,6 +72,16 @@ export function saveCustomSelection(
 	}
 }
 
+export function clearCustomSelection(promptState: PromptState): void {
+	if (!promptState.customEnabled) return;
+	const customSelection = customSelectionFor(promptState.customText);
+	promptState.selections = promptState.selections.filter(
+		(item) => item !== customSelection,
+	);
+	promptState.customText = "";
+	promptState.customEnabled = false;
+}
+
 export function pickChoiceSelection(
 	prompt: Pick<AskPrompt, "multiple"> | undefined,
 	promptState: PromptState,

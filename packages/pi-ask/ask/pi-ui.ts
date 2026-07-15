@@ -31,13 +31,13 @@ async function askComment(
 	ctx: ExtensionContext,
 	prompt: AskPrompt,
 	signal?: AbortSignal,
-): Promise<string> {
+): Promise<string | null> {
 	const value = await ctx.ui.input(
 		`${prompt.title} — comment`,
 		"Optional comment",
 		dialogOptions(signal),
 	);
-	return typeof value === "string" ? value.trim() : "";
+	return value === undefined ? null : value.trim();
 }
 
 function finishSelectionLabelFor(choices: string[]): string {
@@ -122,7 +122,7 @@ export async function askWithPiUi(
 			: await askSingleWithPiUi(ctx, prompt, handoff, signal);
 		if (!selections) return null;
 		const comment = await askComment(ctx, prompt, signal);
-		if (signal?.aborted) return null;
+		if (comment === null || signal?.aborted) return null;
 		responses.push({
 			id: prompt.id,
 			selections,
