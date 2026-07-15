@@ -9,7 +9,11 @@ export { createAskTool } from "./ask/tool.js";
 const PROMPTS_DIR = join(dirname(fileURLToPath(import.meta.url)), "prompts");
 
 export default function humanInTheLoop(pi: ExtensionAPI): void {
-	pi.registerTool(createAskTool());
+	pi.registerTool(
+		createAskTool({
+			onBlockedChange: (state) => pi.events.emit("herdr:blocked", state),
+		}),
+	);
 	pi.on("resources_discover", () => {
 		const config = loadAskConfig();
 		return {
