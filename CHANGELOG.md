@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.5
+### @howaboua/pi-codex-conversion — 2.2.6
 
 ### Changes
 
-- [#111](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/111) [`5cf7d6b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5cf7d6b3ef6769b884d3458e80baafcd9dce5648) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix extension startup in Pi by using its modern root API factory instead of a runtime pi-ai subpath import.
+- [#115](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/115) [`f6bf8d9`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f6bf8d953cbb2de661b628a311dcbbc01367b250) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Route Code Mode web search through explicitly configured Responses proxies using their active model and endpoint.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
