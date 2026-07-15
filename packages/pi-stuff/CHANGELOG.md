@@ -1,5 +1,16 @@
 # @howaboua/pi-stuff
 
+## 0.0.24
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-ask: Add interactive human input, review triage, and handoff prompts through the `ask` tool, plus configurable `/fold` and `/grill` workflows.
+
+- Updated dependencies [[`f516f97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f516f97c76ae27a354f80f85a5a34ecd56c4e9c4)]:
+  - @howaboua/pi-ask@0.0.1
+
 ## 0.0.23
 
 ### Changes
