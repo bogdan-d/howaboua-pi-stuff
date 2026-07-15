@@ -4,6 +4,10 @@ import { createAskTool } from "../ask/tool.js";
 const context = { hasUI: false, mode: "print" } as never;
 
 describe("ask tool results", () => {
+	test("serializes interactive calls", () => {
+		expect(createAskTool().executionMode).toBe("sequential");
+	});
+
 	test("returns review dispositions in model-visible content", async () => {
 		const tool = createAskTool({
 			askInComposer: async () => [

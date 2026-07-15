@@ -32,6 +32,7 @@ export function createAskTool({
 			"ask: For reviews, make each finding a prompt with disposition choices; do not report first.",
 			"ask: Do not add Other/rephrase; it is automatic.",
 		],
+		executionMode: "sequential",
 		async execute(_toolCallId, params, signal, _onUpdate, ctx) {
 			const { handoff, prompts } = normalizeAskInput(params);
 			if (prompts.length === 0) {
@@ -45,8 +46,14 @@ export function createAskTool({
 			const rawResponses = askInComposer
 				? await askInComposer(prompts, signal)
 				: ctx.mode === "tui"
-					? await askInTui(ctx, prompts, { handoff })
-					: await askWithPiUi(ctx, prompts, { handoff });
+					? await askInTui(ctx, prompts, {
+							handoff,
+							...(signal ? { signal } : {}),
+						})
+					: await askWithPiUi(ctx, prompts, {
+							handoff,
+							...(signal ? { signal } : {}),
+						});
 			const responses = normalizeResponses(prompts, rawResponses);
 			if (!responses) {
 				return {

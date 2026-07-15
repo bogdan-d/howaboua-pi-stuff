@@ -361,10 +361,20 @@ function handleAskNavigationInput(
 export async function askInTui(
 	ctx: ExtensionContext,
 	prompts: AskPrompt[],
-	{ handoff = false }: { handoff?: boolean } = {},
+	{ handoff = false, signal }: { handoff?: boolean; signal?: AbortSignal } = {},
 ): Promise<AskResponse[] | null> {
-	if (!ctx.hasUI) return null;
+	if (!ctx.hasUI || signal?.aborted) return null;
 	return await ctx.ui.custom<AskResponse[] | null>((tui, theme, _kb, done) => {
+		let settled = false;
+		const finish = (result: AskResponse[] | null) => {
+			if (settled) return;
+			settled = true;
+			signal?.removeEventListener("abort", abort);
+			done(result);
+		};
+		const abort = () => finish(null);
+		signal?.addEventListener("abort", abort, { once: true });
+		if (signal?.aborted) queueMicrotask(abort);
 		const state: AskUiState = { tab: 0, focus: 0, editing: null };
 		let cached: string[] | undefined;
 		// Keep response lifecycle in one object per prompt. Parallel arrays made tab/default
@@ -452,7 +462,7 @@ export async function askInTui(
 			}
 			if (
 				handleAskNavigationInput(data, {
-					done,
+					done: finish,
 					isReview,
 					promptStates,
 					prompts,
@@ -508,6 +518,7 @@ export async function askInTui(
 		return {
 			render,
 			handleInput,
+			dispose: () => signal?.removeEventListener("abort", abort),
 			invalidate: () => {
 				cached = undefined;
 			},
