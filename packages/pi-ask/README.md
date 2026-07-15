@@ -20,6 +20,8 @@ The agent can present several independently decidable prompts in one tabbed pane
 
 For work only you can complete—sign-in, authorization, hardware access, or another manual step—the agent can open a handoff and wait until you mark it done or unable to complete.
 
+When Pi runs inside Herdr with its Pi integration installed, an open ask panel marks the pane as blocked until you submit, dismiss, or abort it.
+
 `Other/rephrase` is always available. Submit it blank when the prompt needs to be rephrased, split, or followed up instead of answered as written.
 
 ## Prompt commands

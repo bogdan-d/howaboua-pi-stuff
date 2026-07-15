@@ -15,10 +15,19 @@ type AskInComposer = (
 	signal: AbortSignal | undefined,
 ) => Promise<unknown>;
 
+interface BlockedState {
+	active: boolean;
+	label: string;
+}
+
+type OnBlockedChange = (state: BlockedState) => void;
+
 export function createAskTool({
 	askInComposer,
+	onBlockedChange,
 }: {
 	askInComposer?: AskInComposer;
+	onBlockedChange?: OnBlockedChange;
 } = {}) {
 	return defineTool({
 		name: "ask",
@@ -43,17 +52,27 @@ export function createAskTool({
 			if (!askInComposer && !ctx.hasUI)
 				throw new Error("ask requires an interactive UI.");
 
-			const rawResponses = askInComposer
-				? await askInComposer(prompts, signal)
-				: ctx.mode === "tui"
-					? await askInTui(ctx, prompts, {
-							handoff,
-							...(signal ? { signal } : {}),
-						})
-					: await askWithPiUi(ctx, prompts, {
-							handoff,
-							...(signal ? { signal } : {}),
-						});
+			const blockedState = {
+				active: true,
+				label: handoff ? "Human action needed" : "Waiting for input",
+			};
+			onBlockedChange?.(blockedState);
+			let rawResponses: unknown;
+			try {
+				rawResponses = askInComposer
+					? await askInComposer(prompts, signal)
+					: ctx.mode === "tui"
+						? await askInTui(ctx, prompts, {
+								handoff,
+								...(signal ? { signal } : {}),
+							})
+						: await askWithPiUi(ctx, prompts, {
+								handoff,
+								...(signal ? { signal } : {}),
+							});
+			} finally {
+				onBlockedChange?.({ ...blockedState, active: false });
+			}
 			const responses = normalizeResponses(prompts, rawResponses);
 			if (!responses) {
 				return {

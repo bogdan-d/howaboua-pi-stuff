@@ -50,7 +50,11 @@ describe("ask tool results", () => {
 	});
 
 	test("keeps a dismissed handoff distinct from a response", async () => {
-		const tool = createAskTool({ askInComposer: async () => null });
+		const blockedStates: Array<{ active: boolean; label: string }> = [];
+		const tool = createAskTool({
+			askInComposer: async () => null,
+			onBlockedChange: (state) => blockedStates.push(state),
+		});
 
 		const result = await tool.execute(
 			"call-2",
@@ -67,5 +71,33 @@ describe("ask tool results", () => {
 			dismissed: true,
 			kind: "handoff",
 		});
+		expect(blockedStates).toEqual([
+			{ active: true, label: "Human action needed" },
+			{ active: false, label: "Human action needed" },
+		]);
+	});
+
+	test("clears blocked state when the prompt UI fails", async () => {
+		const blockedStates: Array<{ active: boolean; label: string }> = [];
+		const tool = createAskTool({
+			askInComposer: async () => {
+				throw new Error("UI unavailable");
+			},
+			onBlockedChange: (state) => blockedStates.push(state),
+		});
+
+		const execution = tool.execute(
+			"call-3",
+			{ prompts: [{ title: "Choose a path" }] },
+			undefined,
+			undefined,
+			context,
+		);
+
+		await expect(execution).rejects.toThrow("UI unavailable");
+		expect(blockedStates).toEqual([
+			{ active: true, label: "Waiting for input" },
+			{ active: false, label: "Waiting for input" },
+		]);
 	});
 });
