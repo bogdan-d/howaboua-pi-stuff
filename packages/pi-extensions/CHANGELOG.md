@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.25
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-ask: Report open ask panels as blocked to Herdr's Pi integration.
+
+- Updated dependencies [[`8f82078`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8f82078a8e733dbe770c7b5fd9ad1b20cd5a21af)]:
+  - @howaboua/pi-ask@0.0.2
+
 ## 0.0.24
 
 ### Changes
