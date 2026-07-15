@@ -10,8 +10,8 @@ Pi packages run with your local permissions. You can obviously trust me, a stran
 
 | Package | Includes | Deliberate exclusions |
 |---|---|---|
-| [`@howaboua/pi-stuff`](./packages/pi-stuff) | 10 general extensions and 8 shareable skills | Codex conversion and Omarchy support |
-| [`@howaboua/pi-extensions`](./packages/pi-extensions) | 10 general extensions | Codex conversion |
+| [`@howaboua/pi-stuff`](./packages/pi-stuff) | 11 general extensions and 8 shareable skills | Codex conversion and Omarchy support |
+| [`@howaboua/pi-extensions`](./packages/pi-extensions) | 11 general extensions | Codex conversion |
 | [`@howaboua/pi-skills`](./packages/pi-skills) | 8 shareable skills | Omarchy support |
 
 ```bash
@@ -27,6 +27,7 @@ pi install npm:@howaboua/pi-skills
 
 | Package | What it adds |
 |---|---|
+| [`pi-ask`](./packages/pi-ask) | Interactive user decisions, review triage, and human handoffs |
 | [`pi-auto-reasoning-tool`](./packages/pi-auto-reasoning-tool) | An agent-callable `change_reasoning` tool with the user's selected level as its floor |
 | [`pi-auto-trees`](./packages/pi-auto-trees) | `/marker` and `/end` for rolling completed work into a compact branch summary |
 | [`pi-codex-conversion`](./packages/pi-codex-conversion) | Codex-shaped shell, patch, image, web, and Code Mode tools for GPT/Codex models |

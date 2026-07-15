@@ -28,6 +28,22 @@
         "web-tree-sitter": "^0.26.7",
       },
     },
+    "packages/pi-ask": {
+      "name": "@howaboua/pi-ask",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@biomejs/biome": "^2.4.16",
+        "@earendil-works/pi-coding-agent": "0.80.7",
+        "@earendil-works/pi-tui": "0.80.7",
+        "typebox": "1.1.38",
+        "typescript": "^6.0.3",
+      },
+      "peerDependencies": {
+        "@earendil-works/pi-coding-agent": ">=0.80.7",
+        "@earendil-works/pi-tui": ">=0.80.7",
+        "typebox": "*",
+      },
+    },
     "packages/pi-auto-reasoning-tool": {
       "name": "@howaboua/pi-auto-reasoning-tool",
       "version": "0.1.9",
@@ -133,6 +149,7 @@
       "name": "@howaboua/pi-extensions",
       "version": "0.0.22",
       "dependencies": {
+        "@howaboua/pi-ask": "0.0.0",
         "@howaboua/pi-auto-reasoning-tool": "0.1.9",
         "@howaboua/pi-auto-trees": "0.1.8",
         "@howaboua/pi-dynamic-tools": "0.0.5",
@@ -279,6 +296,7 @@
       "name": "@howaboua/pi-stuff",
       "version": "0.0.22",
       "dependencies": {
+        "@howaboua/pi-ask": "0.0.0",
         "@howaboua/pi-auto-reasoning-tool": "0.1.9",
         "@howaboua/pi-auto-trees": "0.1.8",
         "@howaboua/pi-dynamic-tools": "0.0.5",
@@ -510,6 +528,8 @@
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.28.0", "", { "os": "win32", "cpu": "x64" }, "sha512-pEl1bO9mfAmIC+tW5btTmrKaujg3zGtUmWNdCw/xs70FBjwAL3o9OEKNHvNmnyylD6ubxUERiEhdsL0xBQ9efw=="],
 
     "@google/genai": ["@google/genai@1.52.0", "", { "dependencies": { "google-auth-library": "^10.3.0", "p-retry": "^4.6.2", "protobufjs": "^7.5.4", "ws": "^8.18.0" }, "peerDependencies": { "@modelcontextprotocol/sdk": "^1.25.2" }, "optionalPeers": ["@modelcontextprotocol/sdk"] }, "sha512-gwSvbpiN/17O9TbsqSsE/OzZcpv5Fo4RQjdngGgogtuB9RsyJ8ZHhX5KjHj1bp5N9snN2eK8LDGXSaWW2hof8Q=="],
+
+    "@howaboua/pi-ask": ["@howaboua/pi-ask@workspace:packages/pi-ask"],
 
     "@howaboua/pi-auto-reasoning-tool": ["@howaboua/pi-auto-reasoning-tool@workspace:packages/pi-auto-reasoning-tool"],
 
@@ -1122,6 +1142,8 @@
     "@earendil-works/pi-coding-agent/semver": ["semver@7.8.0", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA=="],
 
     "@earendil-works/pi-coding-agent/typebox": ["typebox@1.1.38", "", {}, "sha512-pZ0aQPmMmXoUvSbeuWf/Hzsc+avNw/Zd6VeE8CFgkVGWyuHPJvqeJJDeJqLve+K70LvjYIoleGcoJHPT17cWoA=="],
+
+    "@howaboua/pi-ask/typebox": ["typebox@1.1.38", "", {}, "sha512-pZ0aQPmMmXoUvSbeuWf/Hzsc+avNw/Zd6VeE8CFgkVGWyuHPJvqeJJDeJqLve+K70LvjYIoleGcoJHPT17cWoA=="],
 
     "@howaboua/pi-auto-reasoning-tool/typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 

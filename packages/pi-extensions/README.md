@@ -10,6 +10,7 @@ pi install npm:@howaboua/pi-extensions
 
 ## Included extensions
 
+- `pi-ask` — interactive decisions, review triage, and human handoffs
 - `pi-auto-reasoning-tool` — agent-controlled reasoning levels with the user's level as a floor
 - `pi-auto-trees` — `/marker` and `/end` for incremental long sessions
 - `pi-dynamic-tools` — TOML-defined command tools through JavaScript Code Mode
