@@ -18,8 +18,16 @@ function askConfigPath(): string {
 
 export function loadAskConfig(path = askConfigPath()): AskConfig {
 	if (!existsSync(path)) {
-		mkdirSync(dirname(path), { recursive: true });
-		writeFileSync(path, `${JSON.stringify(DEFAULT_CONFIG, null, 2)}\n`, "utf8");
+		try {
+			mkdirSync(dirname(path), { recursive: true });
+			writeFileSync(
+				path,
+				`${JSON.stringify(DEFAULT_CONFIG, null, 2)}\n`,
+				"utf8",
+			);
+		} catch {
+			// A read-only agent directory must not disable default prompt resources.
+		}
 		return { ...DEFAULT_CONFIG };
 	}
 
