@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.6
+### @howaboua/pi-codex-conversion — 2.2.7
 
 ### Changes
 
-- [#115](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/115) [`f6bf8d9`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f6bf8d953cbb2de661b628a311dcbbc01367b250) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Route Code Mode web search through explicitly configured Responses proxies using their active model and endpoint.
+- [#118](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/118) [`9b00dea`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9b00deac82223f8a26c9c918c29e003fc03f0d25) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Scope cached OpenAI Codex WebSocket shutdown to the Pi session being closed so in-process sibling sessions keep their connections.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
