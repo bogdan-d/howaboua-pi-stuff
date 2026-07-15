@@ -21,11 +21,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 ## Latest package changelogs
 
-### @howaboua/pi-ask — 0.0.1
+### @howaboua/pi-ask — 0.0.2
 
 ### Changes
 
-- [#113](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/113) [`f516f97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f516f97c76ae27a354f80f85a5a34ecd56c4e9c4) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add interactive human input, review triage, and handoff prompts through the `ask` tool, plus configurable `/fold` and `/grill` workflows.
+- [#120](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/120) [`8f82078`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8f82078a8e733dbe770c7b5fd9ad1b20cd5a21af) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Report open ask panels as blocked to Herdr's Pi integration.
 
 [Full changelog](./packages/pi-ask/CHANGELOG.md)
 
@@ -69,16 +69,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.24
+### @howaboua/pi-extensions — 0.0.25
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-ask: Add interactive human input, review triage, and handoff prompts through the `ask` tool, plus configurable `/fold` and `/grill` workflows.
+  - @howaboua/pi-ask: Report open ask panels as blocked to Herdr's Pi integration.
 
-- Updated dependencies [[`f516f97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f516f97c76ae27a354f80f85a5a34ecd56c4e9c4)]:
-  - @howaboua/pi-ask@0.0.1
+- Updated dependencies [[`8f82078`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8f82078a8e733dbe770c7b5fd9ad1b20cd5a21af)]:
+  - @howaboua/pi-ask@0.0.2
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -213,16 +213,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.24
+### @howaboua/pi-stuff — 0.0.25
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-ask: Add interactive human input, review triage, and handoff prompts through the `ask` tool, plus configurable `/fold` and `/grill` workflows.
+  - @howaboua/pi-ask: Report open ask panels as blocked to Herdr's Pi integration.
 
-- Updated dependencies [[`f516f97`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/f516f97c76ae27a354f80f85a5a34ecd56c4e9c4)]:
-  - @howaboua/pi-ask@0.0.1
+- Updated dependencies [[`8f82078`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8f82078a8e733dbe770c7b5fd9ad1b20cd5a21af)]:
+  - @howaboua/pi-ask@0.0.2
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
