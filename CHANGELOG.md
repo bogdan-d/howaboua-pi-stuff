@@ -37,11 +37,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.4
+### @howaboua/pi-codex-conversion — 2.2.5
 
 ### Changes
 
-- [#109](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/109) [`cbe2950`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/cbe295098ea5668102963ca9e27982864635eea7) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Respect Pi skill exclusions by leaving native `.agents` skill discovery to Pi. Code Mode now prepares its V8 host early with proxy-aware, cancellable downloads, preserves raw exec calls and response diagnostics through explicitly configured Responses providers, supports header-only proxy authentication, separates optional proxy Responses Lite transport from Code Mode, and keeps its model-facing tool contract compact.
+- [#111](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/111) [`5cf7d6b`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5cf7d6b3ef6769b884d3458e80baafcd9dce5648) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Fix extension startup in Pi by using its modern root API factory instead of a runtime pi-ai subpath import.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
