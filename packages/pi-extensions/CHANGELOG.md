@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.26
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-markdown-workflows: Make skill descriptions terse semantic indexes, remove purpose sections, and distinguish operational from creative body language.
+
+- Updated dependencies [[`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5)]:
+  - @howaboua/pi-markdown-workflows@0.2.20
+
 ## 0.0.25
 
 ### Changes
