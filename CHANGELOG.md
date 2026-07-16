@@ -21,11 +21,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 ## Latest package changelogs
 
-### @howaboua/pi-ask — 0.0.2
+### @howaboua/pi-ask — 0.0.3
 
 ### Changes
 
-- [#120](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/120) [`8f82078`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8f82078a8e733dbe770c7b5fd9ad1b20cd5a21af) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Report open ask panels as blocked to Herdr's Pi integration.
+- [#128](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/128) [`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Remove the duplicated ask tool name from the model-facing prompt inventory.
 
 [Full changelog](./packages/pi-ask/CHANGELOG.md)
 
@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.8
+### @howaboua/pi-codex-conversion — 2.2.9
 
 ### Changes
 
-- [#124](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/124) [`556ac48`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/556ac482bad77fb8e76d9e218687ab10ad0d2f70) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Clarify Code Mode output and continuation tool guidance.
+- [#128](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/128) [`7bcf709`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/7bcf709f700056cbc921bf597fd5ff0267f2706a) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Remove redundant tool-name labels from promoted Code Mode usage contracts.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
@@ -69,16 +69,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.26
+### @howaboua/pi-extensions — 0.0.27
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-markdown-workflows: Make skill descriptions terse semantic indexes, remove purpose sections, and distinguish operational from creative body language.
+  - @howaboua/pi-ask: Remove the duplicated ask tool name from the model-facing prompt inventory.
 
-- Updated dependencies [[`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5)]:
-  - @howaboua/pi-markdown-workflows@0.2.20
+- Updated dependencies [[`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e)]:
+  - @howaboua/pi-ask@0.0.3
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -222,33 +222,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.26
+### @howaboua/pi-stuff — 0.0.27
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-markdown-workflows: Make skill descriptions terse semantic indexes, remove purpose sections, and distinguish operational from creative body language.
-  - @howaboua/pi-skill-agents-md: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-gh-issue-pr-flow: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-agent-native-hardening: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-project-reference-research: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-model-facing-api-design: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-anti-ai-copy: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-adversarial-qa: Add the adversarial-qa skill for falsifying code behaviour with property, differential, mutation, and fuzz testing.
-  - @howaboua/pi-skill-skill-creator: Make skill descriptions terse semantic indexes, remove purpose sections, and distinguish operational from creative body language.
-  - @howaboua/pi-skill-chrome-cdp: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
+  - @howaboua/pi-ask: Remove the duplicated ask tool name from the model-facing prompt inventory.
 
-- Updated dependencies [[`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5), [`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5)]:
-  - @howaboua/pi-skill-project-reference-research@0.0.4
-  - @howaboua/pi-skill-model-facing-api-design@0.0.4
-  - @howaboua/pi-skill-agent-native-hardening@0.0.5
-  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.6
-  - @howaboua/pi-skill-anti-ai-copy@0.0.4
-  - @howaboua/pi-skill-chrome-cdp@0.0.4
-  - @howaboua/pi-skill-agents-md@0.0.4
-  - @howaboua/pi-skill-skill-creator@0.0.5
-  - @howaboua/pi-markdown-workflows@0.2.20
+- Updated dependencies [[`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e)]:
+  - @howaboua/pi-ask@0.0.3
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 

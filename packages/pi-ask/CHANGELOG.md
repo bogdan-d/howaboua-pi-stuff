@@ -1,5 +1,11 @@
 # @howaboua/pi-ask
 
+## 0.0.3
+
+### Changes
+
+- [#128](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/128) [`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Remove the duplicated ask tool name from the model-facing prompt inventory.
+
 ## 0.0.2
 
 ### Changes

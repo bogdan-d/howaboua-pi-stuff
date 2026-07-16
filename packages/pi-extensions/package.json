@@ -1,6 +1,6 @@
 {
 	"name": "@howaboua/pi-extensions",
-	"version": "0.0.26",
+	"version": "0.0.27",
 	"description": "all Howaboua Pi extensions",
 	"type": "module",
 	"keywords": [
@@ -13,7 +13,7 @@
 		"access": "public"
 	},
 	"dependencies": {
-		"@howaboua/pi-ask": "0.0.2",
+		"@howaboua/pi-ask": "0.0.3",
 		"@howaboua/pi-auto-reasoning-tool": "0.1.10",
 		"@howaboua/pi-auto-trees": "0.1.9",
 		"@howaboua/pi-dynamic-tools": "0.0.6",
