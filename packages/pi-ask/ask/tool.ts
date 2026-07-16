@@ -35,7 +35,7 @@ export function createAskTool({
 		description:
 			"Request user input or action and return the response. Requires interactive UI.",
 		parameters: AskParameters,
-		promptSnippet: "ask: Request human input or action.",
+		promptSnippet: "Request human input or action.",
 		promptGuidelines: [
 			"ask: Use for needed user decisions or input; set handoff true for a user-only action and state its completion signal.",
 			"ask: For reviews, make each finding a prompt with disposition choices; do not report first.",
