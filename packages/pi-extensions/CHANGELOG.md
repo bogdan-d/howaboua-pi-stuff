@@ -1,5 +1,18 @@
 # @howaboua/pi-extensions
 
+## 0.0.28
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-subagent-review: Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
+  - @howaboua/pi-ask: Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
+
+- Updated dependencies [[`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28), [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28)]:
+  - @howaboua/pi-subagent-review@0.2.11
+  - @howaboua/pi-ask@0.0.4
+
 ## 0.0.27
 
 ### Changes
