@@ -1,5 +1,11 @@
 # @howaboua/pi-ask
 
+## 0.0.4
+
+### Changes
+
+- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
+
 ## 0.0.3
 
 ### Changes

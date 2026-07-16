@@ -21,11 +21,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 ## Latest package changelogs
 
-### @howaboua/pi-ask — 0.0.3
+### @howaboua/pi-ask — 0.0.4
 
 ### Changes
 
-- [#128](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/128) [`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Remove the duplicated ask tool name from the model-facing prompt inventory.
+- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
 
 [Full changelog](./packages/pi-ask/CHANGELOG.md)
 
@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.9
+### @howaboua/pi-codex-conversion — 2.2.10
 
 ### Changes
 
-- [#128](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/128) [`7bcf709`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/7bcf709f700056cbc921bf597fd5ff0267f2706a) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Remove redundant tool-name labels from promoted Code Mode usage contracts.
+- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
@@ -69,16 +69,18 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.27
+### @howaboua/pi-extensions — 0.0.28
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-ask: Remove the duplicated ask tool name from the model-facing prompt inventory.
+  - @howaboua/pi-subagent-review: Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
+  - @howaboua/pi-ask: Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
 
-- Updated dependencies [[`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e)]:
-  - @howaboua/pi-ask@0.0.3
+- Updated dependencies [[`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28), [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28)]:
+  - @howaboua/pi-subagent-review@0.2.11
+  - @howaboua/pi-ask@0.0.4
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -222,24 +224,26 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.27
+### @howaboua/pi-stuff — 0.0.28
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-ask: Remove the duplicated ask tool name from the model-facing prompt inventory.
+  - @howaboua/pi-subagent-review: Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
+  - @howaboua/pi-ask: Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
 
-- Updated dependencies [[`9604ec3`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/9604ec3505eff2d9ee789f42ef45038bc00da02e)]:
-  - @howaboua/pi-ask@0.0.3
+- Updated dependencies [[`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28), [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28)]:
+  - @howaboua/pi-subagent-review@0.2.11
+  - @howaboua/pi-ask@0.0.4
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
-### @howaboua/pi-subagent-review — 0.2.10
+### @howaboua/pi-subagent-review — 0.2.11
 
 ### Changes
 
-- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
+- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
 
 [Full changelog](./packages/pi-subagent-review/CHANGELOG.md)
 
