@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.10
+### @howaboua/pi-codex-conversion — 2.2.11
 
 ### Changes
 
-- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
+- [#134](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/134) [`a938fbd`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/a938fbdfb722d3e3105fb778538f4e3d9be954d3) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Restore Code Mode tool execution for configured OpenAI Responses providers on Pi 0.80.8 and newer by routing their streams through the custom-tool parser. Persist settings atomically and make existing Code Mode history safe to resume after the mode is disabled.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
