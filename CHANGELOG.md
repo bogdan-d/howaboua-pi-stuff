@@ -45,11 +45,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.11
+### @howaboua/pi-codex-conversion — 2.2.12
 
 ### Changes
 
-- [#134](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/134) [`a938fbd`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/a938fbdfb722d3e3105fb778538f4e3d9be954d3) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Restore Code Mode tool execution for configured OpenAI Responses providers on Pi 0.80.8 and newer by routing their streams through the custom-tool parser. Persist settings atomically and make existing Code Mode history safe to resume after the mode is disabled.
+- [#136](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/136) [`a5a98cf`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/a5a98cfe4a145e730b1b1bbfb91377ce1f066d35) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Aligns native OpenAI compaction with Codex v1 by compacting the full active transcript and preserving cached history prefixes during oversized-request trimming. Adds an opt-in Responses compaction v2 protocol that uses the active provider stream and cached WebSocket lifecycle while retaining recent real user messages beside the encrypted checkpoint. V2 retention can preserve 16k, 32k, or Codex-native 64k user-message windows without slicing messages. GPT-5.6 model windows are conservatively clamped to the current 272k production limit so Pi compacts before backend overflow. Running Code Mode cells and shell commands now identify the exact continuation call needed to resume them in their active tool mode, while repeated Code Mode waits back off locally to give long-running work time to finish. Code Mode also intercepts standalone shell-shaped `apply_patch` calls through the native nested patch tool, matching Codex's lenient invocation path without exposing another top-level schema.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
