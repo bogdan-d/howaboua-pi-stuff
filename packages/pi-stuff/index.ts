@@ -2,6 +2,7 @@ import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import howabouaPiAsk from "@howaboua/pi-ask";
 import howabouaPiAutoReasoningTool from "@howaboua/pi-auto-reasoning-tool";
 import howabouaPiAutoTrees from "@howaboua/pi-auto-trees";
+import howabouaPiCacheHitPredictor from "@howaboua/pi-cache-hit-predictor";
 import howabouaPiDynamicTools from "@howaboua/pi-dynamic-tools";
 import howabouaPiExploreSubagents from "@howaboua/pi-explore-subagents";
 import howabouaPiMarkdownWorkflows from "@howaboua/pi-markdown-workflows";
@@ -15,6 +16,7 @@ export default async function (pi: ExtensionAPI) {
 	await howabouaPiAsk(pi);
 	await howabouaPiAutoReasoningTool(pi);
 	await howabouaPiAutoTrees(pi);
+	await howabouaPiCacheHitPredictor(pi);
 	await howabouaPiDynamicTools(pi);
 	await howabouaPiExploreSubagents(pi);
 	await howabouaPiMarkdownWorkflows(pi);
