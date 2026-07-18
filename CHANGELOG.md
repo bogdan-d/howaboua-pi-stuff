@@ -29,11 +29,13 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-ask/CHANGELOG.md)
 
-### @howaboua/pi-auto-reasoning-tool — 0.1.10
+### @howaboua/pi-auto-reasoning-tool — 0.1.11
 
 ### Changes
 
-- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Tighten the change_reasoning agent contract and clarify responses at the user's minimum.
+- [#140](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/140) [`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add inline cache-hit predictions when switching Pi model or reasoning lanes.
+
+  Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
 
 [Full changelog](./packages/pi-auto-reasoning-tool/CHANGELOG.md)
 
@@ -44,6 +46,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 - [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
 
 [Full changelog](./packages/pi-auto-trees/CHANGELOG.md)
+
+### @howaboua/pi-cache-hit-predictor — 0.0.1
+
+### Changes
+
+- [#140](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/140) [`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Add inline cache-hit predictions when switching Pi model or reasoning lanes.
+
+  Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
+
+[Full changelog](./packages/pi-cache-hit-predictor/CHANGELOG.md)
 
 ### @howaboua/pi-codex-conversion — 2.2.13
 
@@ -69,18 +81,17 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.28
+### @howaboua/pi-extensions — 0.0.29
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
-  - @howaboua/pi-ask: Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
+  - @howaboua/pi-cache-hit-predictor: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
+  - @howaboua/pi-auto-reasoning-tool: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
 
-- Updated dependencies [[`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28), [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28)]:
-  - @howaboua/pi-subagent-review@0.2.11
-  - @howaboua/pi-ask@0.0.4
+- Updated dependencies [[`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff)]:
+  - @howaboua/pi-auto-reasoning-tool@0.1.11
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -224,18 +235,17 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.28
+### @howaboua/pi-stuff — 0.0.29
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
-  - @howaboua/pi-ask: Uses configured Pi keybindings for ask navigation and theme-native TUI colors.
+  - @howaboua/pi-cache-hit-predictor: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
+  - @howaboua/pi-auto-reasoning-tool: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
 
-- Updated dependencies [[`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28), [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28)]:
-  - @howaboua/pi-subagent-review@0.2.11
-  - @howaboua/pi-ask@0.0.4
+- Updated dependencies [[`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff)]:
+  - @howaboua/pi-auto-reasoning-tool@0.1.11
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
