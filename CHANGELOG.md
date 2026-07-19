@@ -57,19 +57,19 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-cache-hit-predictor/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.13
+### @howaboua/pi-codex-conversion — 2.2.14
 
 ### Changes
 
-- [#138](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/138) [`088be70`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/088be704fec1ad0d67461fab88f43822f6776bdb) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Allows Responses compaction v1 and v2 to reuse the same encrypted checkpoint across protocol and model changes when the provider, API, and endpoint match. Native compaction now inherits the active model and reasoning level, while normal model switches preserve backend-verified WebSocket continuation.
+- [#144](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/144) [`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-dynamic-tools — 0.0.6
+### @howaboua/pi-dynamic-tools — 0.0.7
 
 ### Changes
 
-- [#106](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/106) [`c423031`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c4230312f24db0e49c95eafff959109d74017c3d) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Rewrite package documentation around current installation, configuration, usage, and behavior.
+- [#144](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/144) [`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
 
 [Full changelog](./packages/pi-dynamic-tools/CHANGELOG.md)
 
@@ -81,17 +81,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.29
+### @howaboua/pi-extensions — 0.0.30
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-cache-hit-predictor: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
-  - @howaboua/pi-auto-reasoning-tool: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
+  - @howaboua/pi-dynamic-tools: Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
 
-- Updated dependencies [[`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff)]:
-  - @howaboua/pi-auto-reasoning-tool@0.1.11
+- Updated dependencies [[`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874)]:
+  - @howaboua/pi-dynamic-tools@0.0.7
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -235,17 +234,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.29
+### @howaboua/pi-stuff — 0.0.30
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-cache-hit-predictor: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
-  - @howaboua/pi-auto-reasoning-tool: Add inline cache-hit predictions when switching Pi model or reasoning lanes. Warn once that automatic reasoning-level changes can cause prompt-cache misses and affect provider costs or quotas.
+  - @howaboua/pi-dynamic-tools: Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
 
-- Updated dependencies [[`c95d68a`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/c95d68a21939860e4c6dcff9c58a6bf8a50044ff)]:
-  - @howaboua/pi-auto-reasoning-tool@0.1.11
+- Updated dependencies [[`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874)]:
+  - @howaboua/pi-dynamic-tools@0.0.7
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 

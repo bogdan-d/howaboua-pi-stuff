@@ -1,5 +1,16 @@
 # @howaboua/pi-extensions
 
+## 0.0.30
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-dynamic-tools: Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
+
+- Updated dependencies [[`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874)]:
+  - @howaboua/pi-dynamic-tools@0.0.7
+
 ## 0.0.29
 
 ### Changes
