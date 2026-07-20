@@ -1,5 +1,16 @@
 # @howaboua/pi-stuff
 
+## 0.0.31
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-subagent-review: Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
+
+- Updated dependencies [[`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b)]:
+  - @howaboua/pi-subagent-review@0.2.12
+
 ## 0.0.30
 
 ### Changes

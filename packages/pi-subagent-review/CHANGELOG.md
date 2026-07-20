@@ -1,5 +1,11 @@
 # @howaboua/pi-subagent-review
 
+## 0.2.12
+
+### Changes
+
+- [#146](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/146) [`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
+
 ## 0.2.11
 
 ### Changes

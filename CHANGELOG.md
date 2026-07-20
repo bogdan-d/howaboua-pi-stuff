@@ -81,16 +81,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.30
+### @howaboua/pi-extensions — 0.0.31
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
+  - @howaboua/pi-subagent-review: Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
 
-- Updated dependencies [[`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874)]:
-  - @howaboua/pi-dynamic-tools@0.0.7
+- Updated dependencies [[`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b)]:
+  - @howaboua/pi-subagent-review@0.2.12
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
@@ -234,24 +234,24 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.30
+### @howaboua/pi-stuff — 0.0.31
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-dynamic-tools: Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
+  - @howaboua/pi-subagent-review: Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
 
-- Updated dependencies [[`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874)]:
-  - @howaboua/pi-dynamic-tools@0.0.7
+- Updated dependencies [[`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b)]:
+  - @howaboua/pi-subagent-review@0.2.12
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
-### @howaboua/pi-subagent-review — 0.2.11
+### @howaboua/pi-subagent-review — 0.2.12
 
 ### Changes
 
-- [#131](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/131) [`828f52e`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/828f52eff1291629d73c3058173cff2fa60e3b28) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Adds Pi 0.80.8 compatibility for Codex device login and review-session model runtime handling.
+- [#146](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/146) [`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
 
 [Full changelog](./packages/pi-subagent-review/CHANGELOG.md)
 
