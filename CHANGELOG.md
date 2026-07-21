@@ -57,11 +57,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-cache-hit-predictor/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.15
+### @howaboua/pi-codex-conversion — 2.2.16
 
 ### Changes
 
-- [#149](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/149) [`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Trim cosmetic terminal punctuation from model-facing Codex prompts and tool metadata; document raw `cmd` strings and JavaScript template-literal considerations; guide apply-patch hunk ordering and return clearer, trace-safe recovery errors
+- [#151](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/151) [`e1f44a2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/e1f44a25bbc850db6df285e9944c183ce0fbc7e5) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Use UUIDv7 request IDs for sessionless OpenAI Codex WebSocket requests.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
