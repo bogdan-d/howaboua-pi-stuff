@@ -57,11 +57,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-cache-hit-predictor/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 2.2.14
+### @howaboua/pi-codex-conversion — 2.2.15
 
 ### Changes
 
-- [#144](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/144) [`5fd1368`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5fd13686f185d21782db8839ae0d798d32163874) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Preserve exec_command startup failures, recover confused process continuations, avoid duplicate nested image rendering, and align Code Mode command tools around forced per-tool yield times, project-local discovery, named configuration failures, and expanded bundled examples.
+- [#149](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/149) [`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Trim cosmetic terminal punctuation from model-facing Codex prompts and tool metadata; document raw `cmd` strings and JavaScript template-literal considerations; guide apply-patch hunk ordering and return clearer, trace-safe recovery errors
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
@@ -166,11 +166,11 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-skill-gh-issue-pr-flow/CHANGELOG.md)
 
-### @howaboua/pi-skill-model-facing-api-design — 0.0.4
+### @howaboua/pi-skill-model-facing-api-design — 0.0.5
 
 ### Changes
 
-- [#126](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/126) [`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
+- [#149](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/149) [`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Document model-facing punctuation and token-cost hygiene
 
 [Full changelog](./packages/pi-skill-model-facing-api-design/CHANGELOG.md)
 
@@ -198,31 +198,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-skill-skill-creator/CHANGELOG.md)
 
-### @howaboua/pi-skills — 0.0.10
+### @howaboua/pi-skills — 0.0.11
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-skill-agents-md: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-gh-issue-pr-flow: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-agent-native-hardening: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-project-reference-research: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-model-facing-api-design: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-anti-ai-copy: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
-  - @howaboua/pi-skill-adversarial-qa: Add the adversarial-qa skill for falsifying code behaviour with property, differential, mutation, and fuzz testing.
-  - @howaboua/pi-skill-skill-creator: Make skill descriptions terse semantic indexes, remove purpose sections, and distinguish operational from creative body language.
-  - @howaboua/pi-skill-chrome-cdp: Make skill descriptions terse semantic indexes and remove redundant job restatements from operational bodies.
+  - @howaboua/pi-skill-model-facing-api-design: Document model-facing punctuation and token-cost hygiene.
 
-- Updated dependencies [[`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5), [`8983df4`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/8983df436423fdc2933863611285946dd0319cf5)]:
-  - @howaboua/pi-skill-project-reference-research@0.0.4
-  - @howaboua/pi-skill-model-facing-api-design@0.0.4
-  - @howaboua/pi-skill-agent-native-hardening@0.0.5
-  - @howaboua/pi-skill-gh-issue-pr-flow@0.0.6
-  - @howaboua/pi-skill-anti-ai-copy@0.0.4
-  - @howaboua/pi-skill-chrome-cdp@0.0.4
-  - @howaboua/pi-skill-agents-md@0.0.4
-  - @howaboua/pi-skill-skill-creator@0.0.5
+- Updated dependencies [[`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e)]:
+  - @howaboua/pi-skill-model-facing-api-design@0.0.5
 
 [Full changelog](./packages/pi-skills/CHANGELOG.md)
 
@@ -234,16 +219,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.31
+### @howaboua/pi-stuff — 0.0.32
 
 ### Changes
 
 - Include bundled package updates:
 
-  - @howaboua/pi-subagent-review: Reinjects the review advisory preface when compaction has removed the earlier preface from active session context.
+  - @howaboua/pi-skill-model-facing-api-design: Document model-facing punctuation and token-cost hygiene.
 
-- Updated dependencies [[`799a4b2`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/799a4b24e5b49a1020c95524209c01112625aa6b)]:
-  - @howaboua/pi-subagent-review@0.2.12
+- Updated dependencies [[`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e)]:
+  - @howaboua/pi-skill-model-facing-api-design@0.0.5
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
