@@ -1,5 +1,16 @@
 # @howaboua/pi-stuff
 
+## 0.0.32
+
+### Changes
+
+- Include bundled package updates:
+
+  - @howaboua/pi-skill-model-facing-api-design: Document model-facing punctuation and token-cost hygiene.
+
+- Updated dependencies [[`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e)]:
+  - @howaboua/pi-skill-model-facing-api-design@0.0.5
+
 ## 0.0.31
 
 ### Changes

@@ -1,5 +1,11 @@
 # @howaboua/pi-skill-model-facing-api-design
 
+## 0.0.5
+
+### Changes
+
+- [#149](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/149) [`94b2252`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/94b225295be07e04206460963fd3da754a74565e) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)! - Document model-facing punctuation and token-cost hygiene
+
 ## 0.0.4
 
 ### Changes
