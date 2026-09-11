@@ -31,7 +31,7 @@ Open `/codex` after installation. The defaults give Codex-like GPT models the st
 
 ## What you get
 
-- Codex-shaped `exec_command`, `write_stdin`, `apply_patch` and `view_image` tools
+- Codex-shaped `exec_command`, `write_stdin`, `apply_patch` and `view_image` tools, plus paged `read` in Code/Notebook Mode
 - Code and Notebook modes that compose the active toolset behind `exec`
 - foreground, background and interactive shell sessions with resumable output
 - image descriptions for blind models
@@ -156,6 +156,8 @@ The model can compose tools in one freeform JavaScript cell:
 const status = await tools.exec_command({ cmd: "git status --short" });
 text(status);
 ```
+
+`exec_command.max_output_tokens` bounds the nested shell preview; the outer `// @exec` `max_output_tokens` independently bounds emitted text. Truncated shell results include byte ranges and page through `text(await tools.write_stdin({ session_id, output_offset }))`. Truncated outer output pages through top-level `wait({ cell_id, output_offset })`. Temporary output is bounded, keeps the latest 32 completed handles at most, and is removed on session shutdown; hard-cap or expired recovery fails explicitly. Use `text(await tools.read({ path, offset, limit }))` for line-paged source files instead of batching `cat` commands.
 
 Notebook Mode keeps `exec` and `wait`, adds a top-level `notebook` lifecycle tool, and preserves JavaScript or TypeScript bindings in one persistent Deno runtime. The `notebook` tool owns status, checkpoints, restarts, resets and stored profiles.
 

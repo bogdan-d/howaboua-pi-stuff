@@ -7,7 +7,7 @@ const MAX_RESPONSE_BYTES = 32 * 1024 * 1024;
 export type NotebookBridgeRequest =
 	| { kind: "tool"; cellId: string; requestId: number; toolName: CodeModeToolIdentity; input: unknown }
 	| { kind: "cancel_tools"; cellId: string }
-	| { kind: "emit"; cellId: string; items: RuntimeContentItem[] }
+	| { kind: "emit"; cellId: string; items: RuntimeContentItem[]; outputIncomplete: boolean }
 	| { kind: "notify"; cellId: string; text: string }
 	| { kind: "yield"; cellId: string }
 	| { kind: "memory"; cellId: string; usage: NotebookMemoryUsage };
@@ -41,7 +41,12 @@ export async function readNotebookBridgeRequest(request: IncomingMessage): Promi
 			};
 		}
 		case "cancel_tools": return { kind: "cancel_tools", cellId };
-		case "emit": return { kind: "emit", cellId, items: parseContentItems(value["items"]) };
+		case "emit": return {
+			kind: "emit",
+			cellId,
+			items: parseContentItems(value["items"]),
+			outputIncomplete: value["outputIncomplete"] === true,
+		};
 		case "notify":
 			if (typeof value["text"] !== "string") throw new Error("Invalid notebook notification");
 			return { kind: "notify", cellId, text: value["text"] };

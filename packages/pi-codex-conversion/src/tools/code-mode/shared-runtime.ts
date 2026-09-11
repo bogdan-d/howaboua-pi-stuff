@@ -1,4 +1,5 @@
 import { ensureCodeModeHostBinary } from "./binary.js";
+import { createRetainedOutputStore, type RetainedOutputPage, type RetainedOutputSnapshot } from "../retained-output.ts";
 import { CodeModeHostClient } from "./host-client.js";
 import { createNotebookControlProxy } from "./notebook-tool.ts";
 import { codeModeGlobalName } from "./tool-identity.ts";
@@ -17,6 +18,11 @@ export interface NotebookRuntimeOptions {
 	maxHeapMiB: number;
 	agentDir: string;
 	profile?: string | undefined;
+}
+
+export interface CodeModeOutputRetention {
+	segmentStartByte: number;
+	snapshot: RetainedOutputSnapshot;
 }
 
 export interface CodeModeExecutionClient {
@@ -42,6 +48,12 @@ export interface CodeModeToolProvider {
 export class SharedCodeModeRuntime {
 	readonly providers = new Map<object, CodeModeToolProvider>();
 	readonly renderStore = new CodeModeNestedRenderStore();
+	private readonly retainedOutputs = createRetainedOutputStore({
+		prefix: "pi-codex-cell-output-",
+		maxEntryBytes: 64 * 1024 * 1024,
+		maxTotalBytes: 128 * 1024 * 1024,
+		maxCompletedEntries: 32,
+	});
 	private clientPromise: Promise<CodeModeHostClient> | undefined;
 	private notebookClientPromise: Promise<CodeModeExecutionClient> | undefined;
 	private notebookClientOptionsKey: string | undefined;
@@ -208,6 +220,27 @@ export class SharedCodeModeRuntime {
 		return client.controlNotebook(request, context, signal);
 	}
 
+	retainOutput(response: RuntimeResponse): CodeModeOutputRetention | undefined {
+		if (response.missingCell) return undefined;
+		const key = response.cellId;
+		const before = this.retainedOutputs.snapshot(key);
+		const segmentStartByte = before?.totalBytes ?? before?.availableBytes ?? 0;
+		let snapshot = before;
+		for (const item of response.contentItems) {
+			if (item.type !== "input_text" || typeof item.text !== "string") continue;
+			snapshot = this.retainedOutputs.append(key, item.text);
+		}
+		if (response.outputComplete === false)
+			snapshot = this.retainedOutputs.markIncomplete(key);
+		if (response.kind !== "yielded")
+			snapshot = this.retainedOutputs.markCompleted(key) ?? snapshot;
+		return snapshot ? { segmentStartByte, snapshot } : undefined;
+	}
+
+	readOutput(cellId: string, offset: number, maxTokens: number): RetainedOutputPage {
+		return this.retainedOutputs.read(cellId, offset, Math.max(4, maxTokens * 4));
+	}
+
 	async shutdownHost(): Promise<void> {
 		await this.notebookClientTransition;
 		while (this.clientPromise) {
@@ -231,6 +264,7 @@ export class SharedCodeModeRuntime {
 				// Startup failure already reached the caller.
 			}
 		}
+		this.retainedOutputs.clear();
 	}
 
 	private collectProviderTools(ctx?: unknown): CodeModeToolDefinition[] {

@@ -10,7 +10,8 @@ const WRITE_STDIN_PARAMETERS = Type.Object({
 	session_id: Type.Number({ description: "Session ID" }),
 	chars: Type.Optional(Type.String({ description: "Input; non-empty requires original exec_command tty=true. Empty polls" })),
 	yield_time_ms: Type.Optional(Type.Number({ description: "Wait ms" })),
-	max_output_tokens: Type.Optional(Type.Number({ description: "Truncate" })),
+	max_output_tokens: Type.Optional(Type.Number({ description: "Shell preview or recovery page tokens" })),
+	output_offset: Type.Optional(Type.Integer({ minimum: 0, description: "Retained output byte offset" })),
 });
 
 interface WriteStdinParams {
@@ -18,6 +19,7 @@ interface WriteStdinParams {
 	chars?: string | undefined;
 	yield_time_ms?: number | undefined;
 	max_output_tokens?: number | undefined;
+	output_offset?: number | undefined;
 }
 
 interface FormattedExecTranscript {
@@ -64,7 +66,9 @@ function parseWriteStdinParams(params: unknown): WriteStdinParams {
 	const yield_time_ms = "yield_time_ms" in params && typeof params.yield_time_ms === "number" ? params.yield_time_ms : undefined;
 	const max_output_tokens =
 		"max_output_tokens" in params && typeof params.max_output_tokens === "number" ? params.max_output_tokens : undefined;
-	return { session_id: params.session_id, chars, yield_time_ms, max_output_tokens };
+	const output_offset =
+		"output_offset" in params && typeof params.output_offset === "number" ? params.output_offset : undefined;
+	return { session_id: params.session_id, chars, yield_time_ms, max_output_tokens, output_offset };
 }
 
 function isUnifiedExecResult(details: unknown): details is UnifiedExecResult {
@@ -79,7 +83,7 @@ export function createWriteStdinTool(sessions: ExecSessionManager, options: { pr
 	const tool: Parameters<ExtensionAPI["registerTool"]>[0] = {
 		name: "write_stdin",
 		label: "write_stdin",
-		description: "Write/poll exec session",
+		description: "Write/poll exec session or page retained output",
 		...(options.promptSnippet === false ? {} : { promptSnippet: "Write to exec session" }),
 		parameters: WRITE_STDIN_PARAMETERS,
 		async execute(_toolCallId, params, signal, onUpdate) {

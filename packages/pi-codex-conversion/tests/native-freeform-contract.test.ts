@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { CODE_MODE_EXEC_GRAMMAR } from "../src/tools/code-mode/exec-contract.ts";
 import { registerPublicCodeModeTools } from "../src/tools/code-mode/public-tools.ts";
+import { SharedCodeModeRuntime } from "../src/tools/code-mode/shared-runtime.ts";
 import {
 	convertResponsesMessages,
 	convertResponsesTools,
@@ -22,8 +23,9 @@ const exec = {
 	},
 } as const;
 
-test("Code Mode registers native freeform exec beside function controls", () => {
-	const registered: Array<{ name: string; constrainedSampling?: unknown }> = [];
+test("Code Mode registers native freeform exec beside function controls", async () => {
+	const registered: Array<{ name: string; constrainedSampling?: unknown; execute?: unknown }> = [];
+	const runtime = new SharedCodeModeRuntime();
 	registerPublicCodeModeTools({
 		events: {
 			emit() {},
@@ -33,7 +35,7 @@ test("Code Mode registers native freeform exec beside function controls", () => 
 		registerTool(tool: { name: string; constrainedSampling?: unknown }) {
 			registered.push(tool);
 		},
-	} as never, {} as never);
+	} as never, runtime);
 	assert.deepEqual(registered
 		.filter(({ name }) => name === "exec" || name === "wait")
 		.map(({ name, constrainedSampling }) => [name, constrainedSampling]), [
@@ -59,6 +61,32 @@ test("Code Mode registers native freeform exec beside function controls", () => 
 	assert.equal("parameters" in tools[0]!, false);
 	assert.equal(tools[1]?.type, "function");
 	assert.equal(convertResponsesTools([exec] as never)[0]?.type, "function");
+
+	const retained = "FIRST\nMIDDLE\nLAST";
+	runtime.retainOutput({
+		kind: "result",
+		cellId: "public-recovery",
+		contentItems: [{ type: "input_text", text: retained }],
+	});
+	const wait = registered.find(({ name }) => name === "wait");
+	const executeWait = wait!.execute as (
+		id: string,
+		params: { cell_id: string; output_offset: number; max_tokens: number },
+		signal: AbortSignal,
+		onUpdate: undefined,
+		ctx: { cwd: string },
+	) => Promise<{ content: Array<{ type: string; text?: string }> }>;
+	const page = await executeWait(
+		"wait-recovery",
+		{ cell_id: "public-recovery", output_offset: 0, max_tokens: 2 },
+		new AbortController().signal,
+		undefined,
+		{ cwd: process.cwd() },
+	);
+	const pageText = page.content.map((item: { type: string; text?: string }) => item.text ?? "").join("\n");
+	assert.match(pageText, /FIRST/);
+	assert.match(pageText, /output_offset: 8/);
+	await runtime.shutdownHost();
 });
 
 test("native grammar metadata controls custom replay and function fallback", () => {

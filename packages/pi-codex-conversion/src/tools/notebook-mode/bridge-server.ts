@@ -8,7 +8,7 @@ const BRIDGE_SHUTDOWN_GRACE_MS = 1_500;
 export interface NotebookBridgeHandlers {
 	callTool(cellId: string, requestId: number, toolName: CodeModeToolIdentity, input: unknown): Promise<unknown>;
 	cancelTools(cellId: string): void;
-	emit(cellId: string, items: RuntimeContentItem[]): void;
+	emit(cellId: string, items: RuntimeContentItem[], outputIncomplete: boolean): void;
 	notify(cellId: string, text: string): void;
 	yield(cellId: string): void;
 	memory(cellId: string, usage: NotebookMemoryUsage): void;
@@ -74,7 +74,7 @@ export class NotebookBridgeServer {
 					return;
 				}
 				case "cancel_tools": this.handlers.cancelTools(value.cellId); break;
-				case "emit": this.handlers.emit(value.cellId, value.items); break;
+				case "emit": this.handlers.emit(value.cellId, value.items, value.outputIncomplete); break;
 				case "notify": this.handlers.notify(value.cellId, value.text); break;
 				case "yield": this.handlers.yield(value.cellId); break;
 				case "memory": this.handlers.memory(value.cellId, value.usage); break;

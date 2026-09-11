@@ -18,6 +18,7 @@ import { renderTrackedCodeModeResult } from "./result-rendering.js";
 import type { SharedCodeModeRuntime } from "./shared-runtime.js";
 import {
 	formatRunningExecSessionGuidance,
+	toCodeModeOutputPageResult,
 	toCodeModeToolResult,
 } from "./tool-result.js";
 import type {
@@ -54,6 +55,7 @@ const WAIT_PARAMETERS = Type.Object({
 			default: DEFAULT_CODE_MODE_OUTPUT_TOKENS,
 		}),
 	),
+	output_offset: Type.Optional(Type.Integer({ minimum: 0 })),
 	terminate: Type.Optional(Type.Boolean()),
 });
 
@@ -97,7 +99,7 @@ function createExecTool(
 					id,
 					response.kind === "yielded" ? "yielded" : "done",
 				);
-				return toCodeModeToolResult(response);
+				return toCodeModeToolResult(response, undefined, runtime.retainOutput(response));
 			} catch (error) {
 				tracker.finish(id);
 				throw error;
@@ -137,6 +139,19 @@ function createWaitTool(
 		async execute(id, params, signal, onUpdate, ctx) {
 			tracker.start(id);
 			try {
+				if (params.output_offset !== undefined) {
+					if (params.terminate) throw new Error("wait output_offset cannot be combined with terminate");
+					const result = toCodeModeOutputPageResult(
+						params.cell_id,
+						runtime.readOutput(
+							params.cell_id,
+							params.output_offset,
+							params.max_tokens ?? DEFAULT_CODE_MODE_OUTPUT_TOKENS,
+						),
+					);
+					tracker.finish(id);
+					return result;
+				}
 				const client = await runtime.getClient(ctx);
 				const context = { cwd: ctx.cwd, toolCallId: id, extensionContext: ctx, ...hooks, onUpdate };
 				const attempt = waitAttempts.get(params.cell_id) ?? 0;
@@ -172,7 +187,11 @@ function createWaitTool(
 					id,
 					response.kind === "yielded" ? "yielded" : "done",
 				);
-				return toCodeModeToolResult(response, params.max_tokens);
+				return toCodeModeToolResult(
+					response,
+					params.max_tokens,
+					runtime.retainOutput(response),
+				);
 			} catch (error) {
 				waitAttempts.delete(params.cell_id);
 				tracker.finish(id);

@@ -48,7 +48,11 @@ export class NotebookExecutionRuntime {
 		this.bridge = new NotebookBridgeServer({
 			callTool: (cellId, requestId, toolName, input) => this.callTool(cellId, requestId, toolName, input),
 			cancelTools: (cellId) => this.cancelTools(cellId),
-			emit: (cellId, items) => this.requireActiveCell(cellId).emit(items),
+			emit: (cellId, items, outputIncomplete) => {
+				const cell = this.requireActiveCell(cellId);
+				cell.emit(items);
+				if (outputIncomplete) cell.markOutputIncomplete();
+			},
 			notify: (cellId, text) => this.notify(cellId, text),
 			yield: (cellId) => this.requireActiveCell(cellId).requestYield(),
 			memory: (cellId, usage) => this.recordMemory(cellId, usage),
@@ -181,11 +185,15 @@ export class NotebookExecutionRuntime {
 			const result = await session.kernel()!.execute(source, {
 				signal: cell.controller.signal,
 				interruptOnAbort: false,
-				onOutput: (item) => cell.emit([item]),
+				onOutput: (item, outputIncomplete) => {
+					cell.emit([item]);
+					if (outputIncomplete) cell.markOutputIncomplete();
+				},
 			});
 			const normalized = result.errorName === "PiNotebookExit" && result.errorValue === this.bridge.exitToken
 				? { ...result, status: "ok" as const, errorText: undefined, errorName: undefined, errorValue: undefined }
 				: result;
+			if (normalized.outputComplete === false) cell.markOutputIncomplete();
 			cell.result = normalized;
 			if (!(await session.recoverFromBootstrapFailure(normalized))) {
 				await this.endCellRuntime(cell);
@@ -247,10 +255,11 @@ export class NotebookExecutionRuntime {
 				contentItems,
 				...(cell.result?.status === "error" && cell.result.errorText ? { errorText: cell.result.errorText } : {}),
 				maxOutputTokens: cell.maxOutputTokens,
+				...(cell.isOutputComplete() ? {} : { outputComplete: false as const }),
 			}
 			: kind === "terminated"
-				? { kind, cellId: cell.id, contentItems }
-				: { kind, cellId: cell.id, contentItems, maxOutputTokens: cell.maxOutputTokens };
+				? { kind, cellId: cell.id, contentItems, ...(cell.isOutputComplete() ? {} : { outputComplete: false as const }) }
+				: { kind, cellId: cell.id, contentItems, maxOutputTokens: cell.maxOutputTokens, ...(cell.isOutputComplete() ? {} : { outputComplete: false as const }) };
 		const attached = this.delegate.attach(this.withMemory(response));
 		if (kind !== "yielded") this.closeCell(cell);
 		return attached;

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { extractDenoSyntaxError } from "../src/tools/notebook-mode/deno-syntax-diagnostics.ts";
-import { applyExecuteReplyError } from "../src/tools/notebook-mode/jupyter-output.ts";
+import { applyExecuteReplyError, applyKernelOutput, finishKernelExecution, type ActiveKernelExecution } from "../src/tools/notebook-mode/jupyter-output.ts";
 import type { JupyterMessage } from "../src/tools/notebook-mode/jupyter-wire.ts";
 
 test("execute_reply preserves failures omitted from IOPub", () => {
@@ -35,4 +35,24 @@ test("execute_reply preserves failures omitted from IOPub", () => {
 		extractDenoSyntaxError("error: SyntaxError: Unexpected token `=`\n  |\n1 | const = 1;\n  |       ~\n    at file:///_stdin.ts:1:7\n"),
 		"SyntaxError: Unexpected token `=`\n  |\n1 | const = 1;\n  |       ~\n    at notebook cell:1:7",
 	);
+
+	const execution: ActiveKernelExecution = {
+		requestId: "request-1",
+		items: [],
+		outputChars: 0,
+		outputTruncated: false,
+		status: "ok",
+		resolve() {},
+		reject() {},
+	};
+	applyKernelOutput({
+		...reply,
+		header: { ...reply.header, msg_type: "stream" },
+		content: { text: "x".repeat(32 * 1024 * 1024 + 1) },
+	}, execution);
+	assert.deepEqual(finishKernelExecution(execution), {
+		status: "ok",
+		items: [{ type: "input_text", text: "[Notebook cell output truncated]" }],
+		outputComplete: false,
+	});
 });

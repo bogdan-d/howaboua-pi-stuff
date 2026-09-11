@@ -169,4 +169,5 @@ export type RuntimeResponse = (
 	traces?: RuntimeToolTrace[] | undefined;
 	droppedTraceCount?: number | undefined;
 	notebookMemory?: NotebookMemoryUsage | undefined;
+	outputComplete?: false | undefined;
 };

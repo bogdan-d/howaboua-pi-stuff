@@ -17,7 +17,7 @@ const EXEC_COMMAND_PARAMETERS = Type.Object({
 	shell: Type.Optional(Type.String()),
 	tty: Type.Optional(Type.Boolean({ description: "Keep stdin open for input or interruption" })),
 	yield_time_ms: Type.Optional(Type.Number({ description: "Wait ms" })),
-	max_output_tokens: Type.Optional(Type.Number({ description: "Truncate" })),
+	max_output_tokens: Type.Optional(Type.Number({ description: "Shell preview tokens" })),
 	login: Type.Optional(Type.Boolean({ description: "Login shell" })),
 });
 

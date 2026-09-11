@@ -1,5 +1,6 @@
 import { StringDecoder } from "node:string_decoder";
 import { getCodexShellArgs } from "../../adapter/prompt/runtime-shell.ts";
+import type { RetainedOutputSnapshot } from "../retained-output.ts";
 import { chunkToBytes, createExecBridgeClient, type BridgeReadResponse } from "./bridge-client.ts";
 
 const EXIT_OUTPUT_GRACE_MS = 100;
@@ -22,6 +23,7 @@ export interface BridgeExecSession {
 	buffer: string;
 	bufferStartOffset: number;
 	emittedOffset: number;
+	outputRetention?: RetainedOutputSnapshot | undefined;
 	outputVersion: number;
 	exitCode: number | null | undefined;
 	listeners: Set<() => void>;
@@ -74,7 +76,7 @@ export function createBridgeSessionRuntime(binaryPath?: () => string | undefined
 		session.exitCode = code ?? (signal ? 128 + signalNumber(signal) : 1);
 	}
 
-	async function poll(session: BridgeExecSession, hooks: BridgeSessionHooks, waitMs = 0, maxBytes?: number): Promise<void> {
+	async function pollNow(session: BridgeExecSession, hooks: BridgeSessionHooks, waitMs = 0, maxBytes?: number): Promise<void> {
 		if (!hooks.isOwned(session)) return;
 		const response = await bridge.request<BridgeReadResponse>({
 			op: "read",
@@ -106,16 +108,20 @@ export function createBridgeSessionRuntime(binaryPath?: () => string | undefined
 		}
 	}
 
-	async function pollBackground(session: BridgeExecSession, hooks: BridgeSessionHooks): Promise<void> {
+	async function poll(session: BridgeExecSession, hooks: BridgeSessionHooks, waitMs = 0, maxBytes?: number): Promise<void> {
 		const previous = pollQueue;
 		let release!: () => void;
 		pollQueue = new Promise<void>((resolve) => { release = resolve; });
 		await previous;
 		try {
-			await poll(session, hooks, 250);
+			await pollNow(session, hooks, waitMs, maxBytes);
 		} finally {
 			release();
 		}
+	}
+
+	function pollBackground(session: BridgeExecSession, hooks: BridgeSessionHooks): Promise<void> {
+		return poll(session, hooks, 250);
 	}
 
 	async function pollLoop(session: BridgeExecSession, hooks: BridgeSessionHooks): Promise<void> {

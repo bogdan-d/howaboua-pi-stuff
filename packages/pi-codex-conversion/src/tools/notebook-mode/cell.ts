@@ -20,6 +20,7 @@ export class NotebookCell {
 	terminated = false;
 	private outputChars = 0;
 	private outputTruncated = false;
+	private sourceOutputIncomplete = false;
 	private cursor = 0;
 	private completedValue = false;
 	private yielded = deferred();
@@ -76,6 +77,14 @@ export class NotebookCell {
 
 	requestYield(): void {
 		this.yielded.resolve();
+	}
+
+	markOutputIncomplete(): void {
+		this.sourceOutputIncomplete = true;
+	}
+
+	isOutputComplete(): boolean {
+		return !this.outputTruncated && !this.sourceOutputIncomplete;
 	}
 
 	setBlocked(blockerId: string, active: boolean): void {

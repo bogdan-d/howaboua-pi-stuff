@@ -12,6 +12,7 @@ export interface KernelExecutionResult {
 	errorText?: string | undefined;
 	errorName?: string | undefined;
 	errorValue?: string | undefined;
+	outputComplete?: false | undefined;
 }
 
 export interface ActiveKernelExecution {
@@ -23,7 +24,7 @@ export interface ActiveKernelExecution {
 	errorText?: string | undefined;
 	errorName?: string | undefined;
 	errorValue?: string | undefined;
-	onOutput?: ((item: RuntimeContentItem) => void) | undefined;
+	onOutput?: ((item: RuntimeContentItem, outputIncomplete: boolean) => void) | undefined;
 	resolve(result: KernelExecutionResult): void;
 	reject(error: Error): void;
 }
@@ -68,6 +69,7 @@ export function finishKernelExecution(execution: ActiveKernelExecution): KernelE
 		...(execution.errorText ? { errorText: execution.errorText } : {}),
 		...(execution.errorName ? { errorName: execution.errorName } : {}),
 		...(execution.errorValue ? { errorValue: execution.errorValue } : {}),
+		...(execution.outputTruncated ? { outputComplete: false as const } : {}),
 	};
 }
 
@@ -88,7 +90,7 @@ function emit(execution: ActiveKernelExecution, item: RuntimeContentItem): void 
 	}
 	execution.items.push(item);
 	execution.outputChars += item.type === "input_text" ? item.text?.length ?? 0 : item.image_url?.length ?? 0;
-	execution.onOutput?.(item);
+	execution.onOutput?.(item, execution.outputTruncated);
 }
 
 function boundedTraceback(value: unknown): string | undefined {

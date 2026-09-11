@@ -9,7 +9,18 @@ export interface ExecOutputSessionState {
 	emittedOffset: number;
 }
 
-function maxCharsForTokens(maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS): number {
+export interface OutputTruncationState {
+	shownStartChar: number;
+	shownEndChar: number;
+}
+
+export interface OutputSnapshot {
+	output: string;
+	original_token_count?: number | undefined;
+	truncation?: OutputTruncationState | undefined;
+}
+
+export function maxCharsForTokens(maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS): number {
 	return Math.max(256, maxOutputTokens * 4);
 }
 
@@ -80,7 +91,7 @@ export function generateChunkId(): string {
 	return randomBytes(3).toString("hex");
 }
 
-export function truncateOutput(text: string, maxOutputTokens?: number, originalCharCount = text.length): { output: string; original_token_count?: number | undefined } {
+export function truncateOutput(text: string, maxOutputTokens?: number, originalCharCount = text.length): OutputSnapshot {
 	if (text.length === 0 && originalCharCount === 0) return { output: "" };
 	const maxChars = maxCharsForTokens(maxOutputTokens);
 	const originalTokenCount = Math.ceil(Math.max(text.length, originalCharCount) / 4);
@@ -93,7 +104,18 @@ export function truncateOutput(text: string, maxOutputTokens?: number, originalC
 			tail = { output: tail.output.slice(newline + 1), removed: tail.removed + newline + 1 };
 		}
 	}
-	return { output: OUTPUT_TRUNCATION_MARKER + tail.output, original_token_count: originalTokenCount };
+	const shownStartChar = Math.max(0, originalCharCount - text.length) + tail.removed;
+	const snapshot: OutputSnapshot = {
+		output: OUTPUT_TRUNCATION_MARKER + tail.output,
+		original_token_count: originalTokenCount,
+	};
+	Object.defineProperty(snapshot, "truncation", {
+		value: {
+			shownStartChar,
+			shownEndChar: shownStartChar + tail.output.length,
+		},
+	});
+	return snapshot;
 }
 
 function outputSince(session: ExecOutputSessionState, offset: number): { text: string; originalCharCount: number; endOffset: number } {
@@ -106,18 +128,18 @@ function outputSince(session: ExecOutputSessionState, offset: number): { text: s
 	};
 }
 
-export function consumeOutput(session: ExecOutputSessionState, maxOutputTokens?: number): { output: string; original_token_count?: number | undefined } {
+export function consumeOutput(session: ExecOutputSessionState, maxOutputTokens?: number): OutputSnapshot {
 	const output = outputSince(session, session.emittedOffset);
 	session.emittedOffset = output.endOffset;
 	return truncateOutput(output.text, maxOutputTokens, output.originalCharCount);
 }
 
-export function peekUnconsumedOutput(session: ExecOutputSessionState, maxOutputTokens?: number): { output: string; original_token_count?: number | undefined } {
+export function peekUnconsumedOutput(session: ExecOutputSessionState, maxOutputTokens?: number): OutputSnapshot {
 	const output = outputSince(session, session.emittedOffset);
 	return truncateOutput(output.text, maxOutputTokens, output.originalCharCount);
 }
 
-export function peekOutputSince(session: ExecOutputSessionState, baselineOffset: number, maxOutputTokens?: number): { output: string; original_token_count?: number | undefined } {
+export function peekOutputSince(session: ExecOutputSessionState, baselineOffset: number, maxOutputTokens?: number): OutputSnapshot {
 	const output = outputSince(session, baselineOffset);
 	return truncateOutput(output.text, maxOutputTokens, output.originalCharCount);
 }

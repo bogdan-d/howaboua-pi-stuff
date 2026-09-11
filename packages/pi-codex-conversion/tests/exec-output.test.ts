@@ -17,7 +17,9 @@ test("bounded raw output resumes deltas after rollover", () => {
 	session.buffer = secondRollover.output;
 	session.bufferStartOffset += secondRollover.removed;
 	const marker = "[Output truncated: beginning omitted; showing tail]\n";
-	assert.deepEqual(consumeOutput(session), { output: marker + "xyzABCDEFG", original_token_count: 5 });
+	const clipped = consumeOutput(session);
+	assert.deepEqual(clipped.truncation, { shownStartChar: 10, shownEndChar: 20 });
+	assert.deepEqual(clipped, { output: marker + "xyzABCDEFG", original_token_count: 5 });
 	assert.deepEqual(consumeOutput(session), { output: "" });
 	assert.equal(truncateToTail(`${"x".repeat(4)}😀z`, 2).output, "z");
 	assert.equal(truncateOutput(`x😀${"y".repeat(255)}`, 1).output, marker + "y".repeat(256 - marker.length));

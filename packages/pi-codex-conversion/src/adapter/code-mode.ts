@@ -1,4 +1,4 @@
-import { getAgentDir, type AgentToolResult, type ExtensionAPI, type ExtensionContext } from "@earendil-works/pi-coding-agent";
+import { createReadToolDefinition, getAgentDir, type AgentToolResult, type ExtensionAPI, type ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { CodexExtensionRuntime } from "../extension/runtime.ts";
 import { getCodeModeExtensionTools } from "../code-mode-extension-tools.ts";
 import { formatRunningExecSessionGuidance } from "../tools/code-mode/tool-result.ts";
@@ -80,6 +80,10 @@ function createNestedTools(
 	};
 	const tools: ProgrammaticCodeModeToolDefinition[] = [
 		toNestedTool(
+			createNestedReadTool(ctx?.cwd ?? process.cwd()),
+			"text(await tools.read({ path: string, offset?: number, limit?: number })) // line offsets are 1-indexed; continue at the reported next offset",
+		),
+		toNestedTool(
 			createApplyPatchTool({
 				customRustBinariesDir: runtime.state.config.tools.customRustBinariesDir,
 				promptSnippet: false,
@@ -111,7 +115,7 @@ function createNestedTools(
 		),
 		toNestedTool(
 			createExecCommandTool(runtime.tracker, runtime.sessions, execOptions),
-			"await tools.exec_command({ cmd: string, workdir?: string, shell?: string, tty?: boolean, yield_time_ms?: number, max_output_tokens?: number, login?: boolean }) // returns { output: string, session_id?: number, exit_code?: number }",
+			"text(await tools.exec_command({ cmd: string, workdir?: string, shell?: string, tty?: boolean, yield_time_ms?: number, max_output_tokens?: number, login?: boolean })) // max_output_tokens bounds the shell preview; truncated results include byte ranges and write_stdin recovery",
 			{
 				start(id, input) {
 					const cmd =
@@ -150,7 +154,7 @@ function createNestedTools(
 		),
 		toNestedTool(
 			createWriteStdinTool(runtime.sessions, options),
-			"await tools.write_stdin({ session_id: number, chars?: string, yield_time_ms?: number, max_output_tokens?: number }) // non-empty chars only when the original exec_command used tty=true",
+			"text(await tools.write_stdin({ session_id: number, chars?: string, yield_time_ms?: number, max_output_tokens?: number, output_offset?: number })) // input/poll, or page retained output by byte offset",
 			{},
 			{ yieldTimeMs: LONG_RUNNING_TOOL_OUTER_YIELD_MS },
 		),
@@ -189,6 +193,24 @@ function createNestedTools(
 		tools.push(toNestedTool(runtime.autoReasoning.tool, `await tools.change_reasoning({ level: "low" | "medium" | "high" }) // ${runtime.autoReasoning.tool.description}`));
 	}
 	return tools;
+}
+
+function createNestedReadTool(cwd: string) {
+	const tool = createReadToolDefinition(cwd);
+	const parameters = tool.parameters as typeof tool.parameters & {
+		properties: Record<string, Record<string, unknown>>;
+	};
+	return {
+		...tool,
+		parameters: {
+			...parameters,
+			properties: {
+				...parameters.properties,
+				offset: { ...parameters.properties.offset, type: "integer", minimum: 1 },
+				limit: { ...parameters.properties.limit, type: "integer", minimum: 1 },
+			},
+		} as unknown as typeof tool.parameters,
+	};
 }
 
 function isRunningExecResult(details: AgentToolResult<unknown>["details"]): details is Record<string, unknown> & { session_id: number } {

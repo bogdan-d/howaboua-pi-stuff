@@ -103,7 +103,7 @@ export function notebookBootstrapSource(origin: string, token: string, exitToken
 	  __state.outputChars += size;
 	  __state.outputItems += 1;
 	}
-	for (const item of accepted) __track(__post({ kind: "emit", cellId: __state.cellId, items: [item] }));
+	for (const item of accepted) __track(__post({ kind: "emit", cellId: __state.cellId, items: [item], outputIncomplete: __state.outputTruncated }));
   };
   const __reportMemory = async (cellId) => {
     const usage = Deno.memoryUsage();

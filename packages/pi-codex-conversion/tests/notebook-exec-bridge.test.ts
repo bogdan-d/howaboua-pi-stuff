@@ -96,4 +96,7 @@ test("Notebook exec proxy shares control normalization without changing the prom
 		getEventListeners(observationController.signal, "abort").length,
 		0,
 	);
+	cell.emit([{ type: "input_text", text: "x".repeat(32 * 1024 * 1024 + 1) }]);
+	assert.equal(cell.isOutputComplete(), false);
+	assert.deepEqual(cell.takeContent(), [{ type: "input_text", text: "[Notebook cell output truncated]" }]);
 });

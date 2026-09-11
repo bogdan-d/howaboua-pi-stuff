@@ -81,7 +81,7 @@ export class DenoJupyterKernel {
 		code: string,
 		options: {
 			signal?: AbortSignal | undefined;
-			onOutput?: ((item: RuntimeContentItem) => void) | undefined;
+			onOutput?: ((item: RuntimeContentItem, outputIncomplete: boolean) => void) | undefined;
 			interruptOnAbort?: boolean | undefined;
 		} = {},
 	): Promise<KernelExecutionResult> {
