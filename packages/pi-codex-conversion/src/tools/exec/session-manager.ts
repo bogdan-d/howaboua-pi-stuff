@@ -127,7 +127,7 @@ export function createExecSessionManager(options: ExecSessionManagerOptions = {}
 	}
 
 	function replayCompletedResult(result: UnifiedExecResult, maxOutputTokens?: number): UnifiedExecResult {
-		const originalCharCount = result.original_token_count === undefined
+		const originalCharCount = result.original_token_count === undefined || result.original_token_count <= Math.ceil(result.output.length / 4)
 			? result.output.length
 			: result.original_token_count * 4;
 		return { ...result, ...truncateOutput(result.output, maxOutputTokens, originalCharCount) };

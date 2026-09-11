@@ -43,7 +43,7 @@ export function snapshotSession(session: ExecResultSessionState, maxOutputChars 
 }
 
 export function makeSnapshotResult(session: ExecResultSessionState, waitMs: number, maxOutputTokens?: number, unconsumedOnly = false): UnifiedExecResult {
-	const snapshot = unconsumedOnly ? peekUnconsumedOutput(session, maxOutputTokens) : truncateOutput(session.buffer, maxOutputTokens);
+	const snapshot = unconsumedOnly ? peekUnconsumedOutput(session, maxOutputTokens) : truncateOutput(session.buffer, maxOutputTokens, session.bufferStartOffset + session.buffer.length);
 	return fromSnapshot(session, waitMs, snapshot);
 }
 

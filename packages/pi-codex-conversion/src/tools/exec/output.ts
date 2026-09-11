@@ -1,6 +1,7 @@
 import { randomBytes } from "node:crypto";
 
 const DEFAULT_MAX_OUTPUT_TOKENS = 10_000;
+export const OUTPUT_TRUNCATION_MARKER = "[Output truncated: beginning omitted; showing tail]\n";
 
 export interface ExecOutputSessionState {
 	buffer: string;
@@ -83,8 +84,16 @@ export function truncateOutput(text: string, maxOutputTokens?: number, originalC
 	if (text.length === 0 && originalCharCount === 0) return { output: "" };
 	const maxChars = maxCharsForTokens(maxOutputTokens);
 	const originalTokenCount = Math.ceil(Math.max(text.length, originalCharCount) / 4);
-	if (text.length <= maxChars) return { output: text, original_token_count: originalTokenCount };
-	return { output: truncateToTail(text, maxChars).output, original_token_count: originalTokenCount };
+	if (text.length <= maxChars && originalCharCount <= text.length) return { output: text, original_token_count: originalTokenCount };
+	let tail = truncateToTail(text, maxChars - OUTPUT_TRUNCATION_MARKER.length);
+	// Prefer complete lines, but retain a marked fragment for a single long line.
+	if (tail.removed > 0 || originalCharCount > text.length) {
+		const newline = tail.output.indexOf("\n");
+		if (newline >= 0 && newline < tail.output.length - 1 && (tail.removed === 0 || text[tail.removed - 1] !== "\n")) {
+			tail = { output: tail.output.slice(newline + 1), removed: tail.removed + newline + 1 };
+		}
+	}
+	return { output: OUTPUT_TRUNCATION_MARKER + tail.output, original_token_count: originalTokenCount };
 }
 
 function outputSince(session: ExecOutputSessionState, offset: number): { text: string; originalCharCount: number; endOffset: number } {
