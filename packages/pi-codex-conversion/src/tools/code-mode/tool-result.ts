@@ -42,6 +42,7 @@ export function toCodeModeToolResult(
 			return content;
 		})
 		.filter((item): item is NonNullable<typeof item> => Boolean(item));
+	const memoryWarning = response.notebookMemory && formatNotebookMemoryWarning(response.notebookMemory);
 	if (omittedImages > 0)
 		output.push({
 			type: "text",
@@ -56,8 +57,8 @@ export function toCodeModeToolResult(
 	);
 	const truncated = truncateTextContent(output, outputTokens * 4);
 	const criticalText = [
-		...(response.notebookMemory ? [formatNotebookMemory(response.notebookMemory)] : []),
-		...runningExecSessionGuidance(response.traces ?? []),
+		...(memoryWarning ? [memoryWarning] : []),
+		...(response.execSessionIds ?? []).map(formatRunningExecSessionGuidance),
 		...(truncated.truncated || response.outputComplete === false || retention?.snapshot.complete === false
 			? nestedExecExitGuidance(response.traces ?? [])
 			: []),
@@ -124,13 +125,14 @@ function withScriptErrorRecovery(errorText: string | undefined): string | undefi
 	return `${errorText}\nRecovery: reuse the existing binding, choose a new name, or retry one-off code inside { ... }; restart only if the binding itself is unusable`;
 }
 
-export function formatNotebookMemory(memory: NotebookMemoryUsage): string {
+export function formatNotebookMemoryWarning(memory: NotebookMemoryUsage): string | undefined {
 	const ratio = memory.heapLimitBytes > 0 ? memory.heapUsedBytes / memory.heapLimitBytes : 0;
 	const pressure = ratio >= 0.9
 		? " · CRITICAL: finish essential work and release unneeded notebook state"
 		: ratio >= 0.8
 			? " · WARNING: release unneeded notebook state"
 			: "";
+	if (!pressure) return undefined;
 	return `Notebook memory: heap ${formatBinaryBytes(memory.heapUsedBytes)} / ${formatBinaryBytes(memory.heapLimitBytes)} · RSS ${formatBinaryBytes(memory.rssBytes)}${pressure}`;
 }
 
@@ -139,29 +141,6 @@ function formatBinaryBytes(bytes: number): string {
 	if (mib < 1024) return `${mib.toFixed(mib < 10 ? 1 : 0)} MiB`;
 	const gib = mib / 1024;
 	return `${gib.toFixed(gib < 10 ? 1 : 0)} GiB`;
-}
-
-function runningExecSessionGuidance(
-	traces: NonNullable<RuntimeResponse["traces"]>,
-): string[] {
-	const sessionIds = new Set<number>();
-	for (const trace of traces) {
-		if (trace.status !== "done") continue;
-		const details = trace.result?.details;
-		const resultSessionId = numericSessionId(details);
-		if (trace.name === "exec_command" && resultSessionId !== undefined) {
-			sessionIds.add(resultSessionId);
-			continue;
-		}
-		if (trace.name !== "write_stdin") continue;
-		const inputSessionId = numericSessionId(trace.input);
-		if (inputSessionId === undefined) continue;
-		if (resultSessionId === undefined) sessionIds.delete(inputSessionId);
-		else sessionIds.add(resultSessionId);
-	}
-	return [...sessionIds].map(
-		formatRunningExecSessionGuidance,
-	);
 }
 
 export function formatRunningExecSessionGuidance(sessionId: number): string {
@@ -233,17 +212,6 @@ function outerRecoveryGuidance(
 		notices.push(`Only the first ${snapshot.availableBytes}${total} bytes were retained${snapshot.reason ? ` (${snapshot.reason})` : ""}; later output is unavailable`);
 	}
 	return notices;
-}
-
-function numericSessionId(value: unknown): number | undefined {
-	if (
-		value &&
-		typeof value === "object" &&
-		"session_id" in value &&
-		typeof value.session_id === "number"
-	)
-		return value.session_id;
-	return undefined;
 }
 
 function toPiContent(

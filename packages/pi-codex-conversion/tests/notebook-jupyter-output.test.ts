@@ -55,4 +55,13 @@ test("execute_reply preserves failures omitted from IOPub", () => {
 		items: [{ type: "input_text", text: "[Notebook cell output truncated]" }],
 		outputComplete: false,
 	});
+	for (const path of ["file:///work/project/_stdin.ts", "file:///C:/work/project/_stdin.ts"]) {
+		const diagnostic = `error: SyntaxError: Expression expected\n    at ${path}:4:1\n`;
+		assert.equal(extractDenoSyntaxError(diagnostic), "SyntaxError: Expression expected\n    at notebook cell:4:1");
+		assert.equal(
+			extractDenoSyntaxError(diagnostic, "generated notebook code"),
+			"SyntaxError: Expression expected\n    at generated notebook code:4:1",
+		);
+	}
+	assert.equal(extractDenoSyntaxError("error: formatter unavailable"), undefined);
 });
