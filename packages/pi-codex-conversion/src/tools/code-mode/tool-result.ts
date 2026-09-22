@@ -22,7 +22,7 @@ export function toCodeModeToolResult(
 			? `Still running (exec cell "${response.cellId}"). Use wait once near expected completion; avoid short polling`
 			: response.kind === "terminated"
 				? "Script terminated"
-				: "Script completed";
+				: undefined;
 	let imageChars = 0;
 	let imageCount = 0;
 	let omittedImages = 0;
@@ -65,16 +65,20 @@ export function toCodeModeToolResult(
 		...nestedExecRecoveryGuidance(response.traces ?? []),
 		...outerRecoveryGuidance(response, retention, truncated),
 	];
+	const content = [
+		...(status ? [{ type: "text" as const, text: status }] : []),
+		...criticalText.map((text) => ({ type: "text" as const, text })),
+		...truncated.content,
+	];
+	const empty = !content.some((item) => item.type !== "text" || item.text.length > 0);
+	if (empty) content.unshift({ type: "text", text: "OK" });
 	return {
-		content: [
-			{ type: "text" as const, text: status },
-			...criticalText.map((text) => ({ type: "text" as const, text })),
-			...truncated.content,
-		],
+		content,
 		details: {
 			codeMode: true,
 			cellId: response.cellId,
 			status: response.kind,
+			statusPrefix: Boolean(status) || empty,
 			...(response.traces ? { traces: response.traces } : {}),
 			...(response.droppedTraceCount
 				? { droppedTraceCount: response.droppedTraceCount }

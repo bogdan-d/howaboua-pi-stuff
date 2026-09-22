@@ -31,6 +31,7 @@ export interface UnifiedExecResult {
 	output_truncated?: true | undefined;
 	output_truncation?: ExecOutputTruncation | undefined;
 	output_recovery?: ExecOutputRecovery | undefined;
+	truncated?: true | undefined;
 }
 
 export interface ExecSessionSnapshot {
@@ -151,6 +152,7 @@ export function createExecSessionManager(options: ExecSessionManagerOptions = {}
 		completedResults.set(sessionId, {
 			...result,
 			output: bounded.removed > 0 ? `[Earlier completed output omitted]\n${bounded.output}` : bounded.output,
+			...(bounded.removed > 0 ? { truncated: true } : {}),
 		});
 		if (completedResults.size <= MAX_COMPLETED_SESSION_HISTORY) return;
 		const oldest = completedResults.keys().next().value;
@@ -158,7 +160,7 @@ export function createExecSessionManager(options: ExecSessionManagerOptions = {}
 	}
 
 	function replayCompletedResult(sessionId: number, result: UnifiedExecResult, maxOutputTokens?: number): UnifiedExecResult {
-		const originalCharCount = result.original_token_count === undefined || result.original_token_count <= Math.ceil(result.output.length / 4)
+		const originalCharCount = !result.truncated || result.original_token_count === undefined
 			? result.output.length
 			: result.original_token_count * 4;
 		const snapshot = truncateOutput(result.output, maxOutputTokens, originalCharCount);
@@ -262,6 +264,7 @@ export function createExecSessionManager(options: ExecSessionManagerOptions = {}
 		const { output, ...status } = result;
 		return {
 			...status,
+			truncated: true,
 			output_truncated: true,
 			output_truncation: {
 				shown_start_byte: page.startByte,

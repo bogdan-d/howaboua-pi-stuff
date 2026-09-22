@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { normalizeContext } from "@earendil-works/pi-ai";
 import { CODE_MODE_EXEC_GRAMMAR } from "../src/tools/code-mode/exec-contract.ts";
 import { registerPublicCodeModeTools } from "../src/tools/code-mode/public-tools.ts";
 import { SharedCodeModeRuntime } from "../src/tools/code-mode/shared-runtime.ts";
@@ -8,6 +9,7 @@ import {
 	convertResponsesTools,
 } from "../src/providers/openai-responses/shared.ts";
 import { buildRequestBody } from "../src/providers/openai-codex/request-body.ts";
+import { serializeMessagesToResponsesInput } from "../src/adapter/compaction/serializer.ts";
 
 const exec = {
 	name: "exec",
@@ -27,12 +29,9 @@ test("Code Mode registers native freeform exec beside function controls", async 
 	const registered: Array<{ name: string; constrainedSampling?: unknown; execute?: unknown }> = [];
 	const runtime = new SharedCodeModeRuntime();
 	registerPublicCodeModeTools({
-		events: {
-			emit() {},
-			on() { return () => {}; },
-		},
+		events: { emit() {}, on() { return () => {}; } },
 		on() {},
-		registerTool(tool: { name: string; constrainedSampling?: unknown }) {
+		registerTool(tool: { name: string }) {
 			registered.push(tool);
 		},
 	} as never, runtime);
@@ -246,20 +245,23 @@ test("cross-provider replay keeps deterministic type-correct item IDs", () => {
 	];
 
 	for (const { target, source } of cases) {
-		const context = { messages: messages(source.provider, source.api), tools: [exec] } as never;
+		const context = normalizeContext({ messages: messages(source.provider, source.api), tools: [exec] } as never);
 		const first = buildRequestBody(target as never, context, { grammarToolInputProperties } as never);
 		const second = buildRequestBody(target as never, context, { grammarToolInputProperties } as never);
 		const call = first.input.find((item) => (item as { type?: string }).type === "custom_tool_call") as { id: string };
 		assert.match(call.id, /^ctc_/);
 		assert.notEqual(call.id, "ctc_source");
 		assert.deepEqual(second.input, first.input);
+		assert.deepEqual(serializeMessagesToResponsesInput(target as never, messages(source.provider, source.api), {
+			grammarToolInputProperties,
+		}), first.input);
 		assert.equal(first.input.some((item) => (item as { type?: string }).type === "custom_tool_call_output"), true);
 	}
 
-	const functionBody = buildRequestBody(cases[0]!.target as never, {
+	const functionBody = buildRequestBody(cases[0]!.target as never, normalizeContext({
 		messages: messages("litellm", "openai-responses"),
 		tools: [exec],
-	} as never);
+	} as never));
 	const functionCall = functionBody.input.find((item) => (item as { type?: string }).type === "function_call") as { id: string };
 	assert.match(functionCall.id, /^fc_/);
 });

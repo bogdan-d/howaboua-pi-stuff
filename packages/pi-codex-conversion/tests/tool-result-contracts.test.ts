@@ -26,7 +26,14 @@ test("apply_patch partial mutations remain error results", () => {
 	assert.equal(handler?.({ toolName: "apply_patch", details: { status: "success", result } }), undefined);
 });
 
-test("Notebook recovery, memory pressure, and retained output are model-visible", async () => {
+test("Notebook results retain output, recovery and memory pressure without success boilerplate", async () => {
+	const completed = toCodeModeToolResult({
+		kind: "result", cellId: "complete",
+		contentItems: [{ type: "input_text", text: "Script completed" }],
+	});
+	assert.deepEqual(completed.content, [{ type: "text", text: "Script completed" }]);
+	const empty = toCodeModeToolResult({ kind: "result", cellId: "empty", contentItems: [] });
+	assert.deepEqual(empty.content, [{ type: "text", text: "OK" }]);
 	const result = toCodeModeToolResult({
 		kind: "yielded",
 		cellId: "notebook-1",
@@ -86,7 +93,8 @@ test("Notebook recovery, memory pressure, and retained output are model-visible"
 		const retention = runtime.retainOutput(response);
 		const truncated = toCodeModeToolResult(response, 1, retention);
 		const visible = truncated.content.map((item) => item.type === "text" ? item.text : "").join("\n");
-		assert.equal(truncated.content[0]?.type === "text" ? truncated.content[0].text : "", "Script completed");
+		assert.equal(truncated.details.statusPrefix, false);
+		assert.doesNotMatch(visible, /Script completed/);
 		assert.match(visible, /Nested exec process exited with code 7/);
 		assert.match(visible, /tools\.write_stdin\(\{ session_id: 17, output_offset: 0/);
 		assert.match(visible, /wait\(\{ cell_id: "retained-cell", output_offset: 0/);

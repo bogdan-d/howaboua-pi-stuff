@@ -18,6 +18,7 @@ export interface OutputSnapshot {
 	output: string;
 	original_token_count?: number | undefined;
 	truncation?: OutputTruncationState | undefined;
+	truncated?: true | undefined;
 }
 
 export function maxCharsForTokens(maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS): number {
@@ -107,6 +108,7 @@ export function truncateOutput(text: string, maxOutputTokens?: number, originalC
 	const shownStartChar = Math.max(0, originalCharCount - text.length) + tail.removed;
 	const snapshot: OutputSnapshot = {
 		output: OUTPUT_TRUNCATION_MARKER + tail.output,
+		truncated: true,
 		original_token_count: originalTokenCount,
 	};
 	Object.defineProperty(snapshot, "truncation", {

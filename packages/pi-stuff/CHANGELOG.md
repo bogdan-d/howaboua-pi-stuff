@@ -1,5 +1,23 @@
 # @howaboua/pi-stuff
 
+## 0.0.85
+
+- Include bundled package updates:
+
+  - @howaboua/pi-gippity-control: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
+  - @howaboua/pi-subagent-review: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
+
+## 0.0.84
+
+- Include bundled package updates:
+
+  - @howaboua/pi-gippity-control: Fixed voice progress waiting through subsequent thinking or tool-call generation after assistant text was ready to speak.
+  - @howaboua/pi-gippity-control: Pi 0.86.0 or newer is now required. Fixed voice context summaries to use Pi's transcript-native provider interface.
+  - @howaboua/pi-gippity-control: Realtime voice now isolates muted capture and clears interrupted playback. - Native voice cancels echo and reduces background noise. - Spoken interruptions clear buffered audio in native and LAN playback. - Microphone failures are reported instead of leaving a silent session.
+  - @howaboua/pi-pet: Remove obsolete test-only helper exports without changing tool behavior.
+  - @howaboua/pi-smart-btw: Remove obsolete test-only helper exports without changing tool behavior.
+  - @howaboua/pi-subagent-review: Removed redundant developer-message wording while preserving review approval rules and nested AGENTS.md guidance.
+
 ## 0.0.83
 
 - Include bundled package updates:

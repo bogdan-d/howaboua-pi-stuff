@@ -36,9 +36,16 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-better-skills-tool/CHANGELOG.md)
 
-### @howaboua/pi-browser — 0.0.3
+### @howaboua/pi-browser — 0.0.4
 
-- Removed redundant tool guidance from Ask, Shepherdr, Skills and Browser. Code and Notebook Mode now show one callable contract per tool, with detailed Browser and agent rules in help.
+- Added session-owned background browser work and direct form controls.
+
+  - Fill or clear fields, select options, and set checkbox states, including indeterminate checkboxes.
+  - Press keys and shortcuts on the focused element.
+  - Wait for an element, page text, or URL with cancellation and a bounded timeout.
+  - Page snapshots now report checked, selected, expanded, and disabled states.
+  - New tabs open in the background and keep rendering during control. Show them explicitly, list session-owned tabs, and close any tab by reference.
+  - Tab ownership survives reloads, worker restarts, and visits to hidden browser pages. Old ownership records expire after 30 days of inactivity. Concurrent Pi sessions keep separate element references.
 
 [Full changelog](./packages/pi-browser/CHANGELOG.md)
 
@@ -52,35 +59,37 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-cache-hit-predictor/CHANGELOG.md)
 
-### @howaboua/pi-codex-conversion — 3.0.34
+### @howaboua/pi-codex-conversion — 3.0.36
 
-- Fixed expanded exec_command rows to show the complete command.
+- Adapt Codex, Imagegen, review, and GipPity to Pi 0.87.
 
-- Fixed context continuity, voice replies, and patch preservation.
+  Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer.
 
-  - V2 compaction preserves the preceding request's reasoning configuration, then starts a fresh baseline without stale overrides. Astra's temporary effort survives continued work across context windows.
-  - Worker updates now accept up to 8 KiB without truncation announcements or offers to read the rest.
-  - Reasoning-summary forwarding now recognizes GPT-6 models.
-  - Replies resume in voice after a context-window rollover, and carried transcripts no longer falsely report that the user ended the call.
-  - Reconnecting voice no longer reposts a cached Voice Context summary.
-  - Added an opt-in plain command output toggle for Code and Notebook modes under `/codex Tools`, keeping command metadata while printing output without JSON escaping.
-  - Notebook cell results report heap and RSS figures only under memory pressure; routine figures remain available through notebook status.
-  - Code and Notebook modes show running-command continuation instructions once per response, preserving the distinction between shell sessions and exec cells.
-  - Notebook syntax errors now point to the original cell source, with generated-code diagnostics labeled separately.
-  - `apply_patch` now preserves existing line endings, unchanged context text, and trailing blank lines, and supports same-drive relative Windows paths.
-  - `apply_patch` rejects repeated source-file sections before writing; multiple hunks in one update remain supported.
+  - Fixed Codex prompt and tool updates rewriting the cached conversation prefix.
+  - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window.
+  - Fixed Imagegen recent-image selection ignoring context removals and replacements.
+  - Fixed review summaries and preface tracking ignoring context removals and replacements.
+  - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-codex-conversion/CHANGELOG.md)
 
-### @howaboua/pi-codex-imagegen — 0.0.5
+### @howaboua/pi-codex-imagegen — 0.0.7
 
-- Guide image generation prompts toward target aspect ratio and quality, the controls honored by the Codex backend.
+- Adapt Codex, Imagegen, review, and GipPity to Pi 0.87.
+
+  Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer.
+
+  - Fixed Codex prompt and tool updates rewriting the cached conversation prefix.
+  - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window.
+  - Fixed Imagegen recent-image selection ignoring context removals and replacements.
+  - Fixed review summaries and preface tracking ignoring context removals and replacements.
+  - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-codex-imagegen/CHANGELOG.md)
 
-### @howaboua/pi-codex-web-run — 0.0.2
+### @howaboua/pi-codex-web-run — 0.0.3
 
-- Fixed Codex web search and image generation to use local Codex authentication on unrelated chat providers while preserving explicit Codex routes and optional Pi Codex integration. Removed Pi Codex package dependencies.
+- Remove retired Spark from Codex tool authentication preferences. Codex Conversion now explains biological-policy errors when the server omits an explanation.
 
 [Full changelog](./packages/pi-codex-web-run/CHANGELOG.md)
 
@@ -102,29 +111,26 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-explore-subagents/CHANGELOG.md)
 
-### @howaboua/pi-extensions — 0.0.75
+### @howaboua/pi-extensions — 0.0.77
 
 - Include bundled package updates:
 
-  - @howaboua/pi-shepherdr: Fixed agent answers being refused when prompt or footer text contains "Review". Shepherdr now reads the complete outer Ask panel, including nested text editors, and refuses incomplete captures without sending input.
+  - @howaboua/pi-gippity-control: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
+  - @howaboua/pi-subagent-review: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-extensions/CHANGELOG.md)
 
-### @howaboua/pi-gippity-control — 0.0.19
+### @howaboua/pi-gippity-control — 0.0.21
 
-- Fixed context continuity, voice replies, and patch preservation.
+- Adapt Codex, Imagegen, review, and GipPity to Pi 0.87.
 
-  - V2 compaction preserves the preceding request's reasoning configuration, then starts a fresh baseline without stale overrides. Astra's temporary effort survives continued work across context windows.
-  - Worker updates now accept up to 8 KiB without truncation announcements or offers to read the rest.
-  - Reasoning-summary forwarding now recognizes GPT-6 models.
-  - Replies resume in voice after a context-window rollover, and carried transcripts no longer falsely report that the user ended the call.
-  - Reconnecting voice no longer reposts a cached Voice Context summary.
-  - Added an opt-in plain command output toggle for Code and Notebook modes under `/codex Tools`, keeping command metadata while printing output without JSON escaping.
-  - Notebook cell results report heap and RSS figures only under memory pressure; routine figures remain available through notebook status.
-  - Code and Notebook modes show running-command continuation instructions once per response, preserving the distinction between shell sessions and exec cells.
-  - Notebook syntax errors now point to the original cell source, with generated-code diagnostics labeled separately.
-  - `apply_patch` now preserves existing line endings, unchanged context text, and trailing blank lines, and supports same-drive relative Windows paths.
-  - `apply_patch` rejects repeated source-file sections before writing; multiple hunks in one update remain supported.
+  Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer.
+
+  - Fixed Codex prompt and tool updates rewriting the cached conversation prefix.
+  - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window.
+  - Fixed Imagegen recent-image selection ignoring context removals and replacements.
+  - Fixed review summaries and preface tracking ignoring context removals and replacements.
+  - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-gippity-control/CHANGELOG.md)
 
@@ -143,9 +149,9 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-memories/CHANGELOG.md)
 
-### @howaboua/pi-pet — 0.1.3
+### @howaboua/pi-pet — 0.1.4
 
-- Expose Pi Pet's extension from the package root so aggregate extension packages can load it.
+- Remove obsolete test-only helper exports without changing tool behavior.
 
 [Full changelog](./packages/pi-pet/CHANGELOG.md)
 
@@ -207,37 +213,38 @@ Going forward, package-level changelogs remain the source of truth for each pack
 
 [Full changelog](./packages/pi-skills/CHANGELOG.md)
 
-### @howaboua/pi-smart-btw — 0.2.6
+### @howaboua/pi-smart-btw — 0.2.7
 
-### Changes
-
-- [#235](https://github.com/IgorWarzocha/howaboua-pi-stuff/pull/235) [`5657b77`](https://github.com/IgorWarzocha/howaboua-pi-stuff/commit/5657b778f59ffa2eb86f10f7e949f060d95eb993) Thanks [@IgorWarzocha](https://github.com/IgorWarzocha)!:
-  - Preserve Pi 0.84 credential-resolved endpoints and nullable auth headers in summaries.
-  - Assemble complete multi-block, delta-only RPC streaming updates.
-  - Remove retired Smart BTW shortcut-capture and voice-helper exports.
+- Remove obsolete test-only helper exports without changing tool behavior.
 
 [Full changelog](./packages/pi-smart-btw/CHANGELOG.md)
 
-### @howaboua/pi-stuff — 0.0.83
+### @howaboua/pi-stuff — 0.0.85
 
 - Include bundled package updates:
 
-  - @howaboua/pi-shepherdr: Fixed agent answers being refused when prompt or footer text contains "Review". Shepherdr now reads the complete outer Ask panel, including nested text editors, and refuses incomplete captures without sending input.
+  - @howaboua/pi-gippity-control: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
+  - @howaboua/pi-subagent-review: Adapt Codex, Imagegen, review, and GipPity to Pi 0.87. Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer. - Fixed Codex prompt and tool updates rewriting the cached conversation prefix. - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window. - Fixed Imagegen recent-image selection ignoring context removals and replacements. - Fixed review summaries and preface tracking ignoring context removals and replacements. - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-stuff/CHANGELOG.md)
 
-### @howaboua/pi-subagent-review — 0.2.21
+### @howaboua/pi-subagent-review — 0.2.23
 
-- Restore full extension prompt preparation when continuing into a new context window or starting review triage.
+- Adapt Codex, Imagegen, review, and GipPity to Pi 0.87.
 
-  - Keep tool instructions current through Pi's normal startup hooks without resetting the Notebook.
-  - Let active context management own review-loop navigation summaries.
+  Codex Conversion, Imagegen, and Subagent Review require Pi 0.87.0 or newer.
+
+  - Fixed Codex prompt and tool updates rewriting the cached conversation prefix.
+  - Context reminders no longer start an extra checkpoint turn if the current run already saved a note in the current window.
+  - Fixed Imagegen recent-image selection ignoring context removals and replacements.
+  - Fixed review summaries and preface tracking ignoring context removals and replacements.
+  - Kept GipPity browser turn notifications from including full context previews and losing their fields to truncation.
 
 [Full changelog](./packages/pi-subagent-review/CHANGELOG.md)
 
-### @howaboua/pi-subdir-agents — 0.0.7
+### @howaboua/pi-subdir-agents — 0.0.8
 
-- Nested AGENTS.md guidance now reaches the model after discovery tools finish in the same task, without retroactive history insertion on the next user turn.
+- Removed redundant developer-message wording while preserving review approval rules and nested AGENTS.md guidance.
 
 [Full changelog](./packages/pi-subdir-agents/CHANGELOG.md)
 

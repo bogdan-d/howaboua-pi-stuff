@@ -21,6 +21,7 @@ function fromSnapshot(session: ExecResultSessionState, waitMs: number, snapshot:
 			? { session_id: session.id }
 			: { exit_code: session.exitCode }),
 		output: snapshot.output,
+		...(snapshot.truncated ? { truncated: true } : {}),
 	};
 	return attachOutputRecovery(result, session.id, retention, snapshot.truncation);
 }

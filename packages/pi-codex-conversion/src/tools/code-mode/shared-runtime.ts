@@ -60,7 +60,6 @@ export class SharedCodeModeRuntime {
 	private notebookClientTransition: Promise<void> = Promise.resolve();
 	private clientStartupAbort: AbortController | undefined;
 	private customPromptToolsSnapshot: CodeModeToolDefinition[] | undefined;
-	private promptSectionSnapshot: string | undefined;
 
 	addProvider(provider: CodeModeToolProvider): object {
 		const id = {};
@@ -91,9 +90,9 @@ export class SharedCodeModeRuntime {
 		return tools;
 	}
 
-	resetPromptTools(ctx?: unknown): CodeModeToolDefinition[] {
-		this.promptSectionSnapshot = undefined;
-		return this.refreshPromptTools(ctx);
+	resetPromptTools(): void {
+		// Capture on the next prompt, after every session/model handler has settled activation.
+		this.customPromptToolsSnapshot = undefined;
 	}
 
 	collectPromptTools(ctx?: unknown): CodeModeToolDefinition[] {
@@ -101,14 +100,6 @@ export class SharedCodeModeRuntime {
 		const liveProgrammaticTools = this.collectProviderTools(ctx)
 			.filter((tool) => !isCustomTool(tool));
 		return [...liveProgrammaticTools, ...this.customPromptToolsSnapshot];
-	}
-
-	setPromptSection(section: string): void {
-		this.promptSectionSnapshot = section;
-	}
-
-	getPromptSection(): string | undefined {
-		return this.promptSectionSnapshot;
 	}
 
 	collectRenderTools(): CodeModeToolDefinition[] {
