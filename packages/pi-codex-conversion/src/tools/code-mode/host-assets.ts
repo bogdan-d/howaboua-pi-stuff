@@ -1,29 +1,29 @@
-export const HOST_RELEASE = "rust-v0.154.0";
+export const HOST_RELEASE = "rust-v0.155.1";
 
 export const HOST_ASSETS = {
 	"darwin-arm64": [
 		"codex-code-mode-host-aarch64-apple-darwin.tar.gz",
-		"500ee2a02ea598ae519052e7d7d8e201d1db01986f30c214ef4143645dc86fad",
+		"e8957108eebd70963b0906857ceb7f7a2b477d1972a7147041c625d4071b508a",
 	],
 	"darwin-x64": [
 		"codex-code-mode-host-x86_64-apple-darwin.tar.gz",
-		"a0fa6141e591f44dc2d86a589cfe797212317bfb9fa3a6c73131e4dbb93387fe",
+		"4d1d2377a39842c13fa07c70e2ddd1592ff4edc4846cf32ce90df07f5568066a",
 	],
 	"linux-arm64": [
 		"codex-code-mode-host-aarch64-unknown-linux-musl.tar.gz",
-		"20aefa302c2022b496e32911bf954a5f76c7fd749c6bdb9fbd711e32b66dcbfa",
+		"516f2ed76d4ae96c2074d3c08f4576ed1bdc5c3a97e26734d7319de8b6861683",
 	],
 	"linux-x64": [
 		"codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz",
-		"a68df7cca23c6da7cde175677df7de61c73a234add1333a1254b86d641af01f7",
+		"9fd083743af55be818aceb351d371fb5136f5b6aa3938f167087373d27067b2d",
 	],
 	"win32-arm64": [
 		"codex-code-mode-host-aarch64-pc-windows-msvc.exe",
-		"1f33d0eaf0522bf067cdf1899c789194411c70fd1cc22eda4a46025c0835193f",
+		"e6ad0719748f70e4c68413c02fe2b6dd5d2338e800e1f5c67678df202edb97d2",
 	],
 	"win32-x64": [
 		"codex-code-mode-host-x86_64-pc-windows-msvc.exe",
-		"7b4987007702973dfeb49ec9a0c11f737488890e208ccb04f7a147769c4bb1f1",
+		"480da4a9a98b5b54d6656d731fbcc00c73fd4d0fc4b9aaceafc9fbdf08a7d523",
 	],
 } as const;
 
