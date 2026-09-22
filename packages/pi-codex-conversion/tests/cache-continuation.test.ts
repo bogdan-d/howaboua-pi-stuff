@@ -25,6 +25,22 @@ import {
 import { context, doneMessage, model, sentFrames, streamOptions, textResponse, user } from "./websocket-test-support.ts";
 
 test("request reasoning must match; persisted GPT-6 updates extend the input instead", async () => {
+	const prePromptSession = SessionManager.inMemory("/repo");
+	prePromptSession.appendCustomEntry("codex-reasoning-update", {
+		protocol: 1, id: "before-prompt", lane: "gpt-6", initialEffort: "medium", effort: "high",
+	});
+	prePromptSession.appendMessage({ role: "system", content: "Stable instructions", timestamp: 1 });
+	const prePromptMessages = buildSessionContext(prePromptSession.getBranch()).messages;
+	assert.deepEqual(
+		projectCodexDeveloperHistory(prePromptSession.getBranch(), prePromptMessages).map((message) => message.role),
+		["system", "custom"],
+		"reasoning bookkeeping recorded before the first prompt must not displace Pi's system head",
+	);
+	assert.deepEqual(
+		projectCodexDeveloperHistory(prePromptSession.getBranch()).map((message) => message.role),
+		["system", "custom"],
+	);
+
 	const userInput = { role: "user", content: [{ type: "input_text", text: "first" }] };
 	const assistantOutput = { type: "message", role: "assistant", content: [{ type: "output_text", text: "answer" }] };
 	const base = {

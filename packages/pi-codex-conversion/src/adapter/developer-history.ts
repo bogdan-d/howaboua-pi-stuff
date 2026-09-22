@@ -40,7 +40,7 @@ export function projectCodexDeveloperHistory(
 	});
 	if (messages && virtualIds.size === 0) return [...messages];
 	const reconstructed = buildSessionContext(projectedEntries, leafId).messages.filter(survives);
-	if (!messages) return reconstructed;
+	if (!messages) return moveLeadingSystemBeforeCustomMessages(reconstructed);
 	// Preserve other extensions' message edits and additions. Insert metadata at its
 	// persisted position, before the next surviving message or after the final one.
 	const positions = new Map<string, number[]>();
@@ -63,8 +63,14 @@ export function projectCodexDeveloperHistory(
 			&& virtualIds.has(message.details.id)) pending.push(message);
 	}
 	if (pending.length) insertions.set(last + 1, [...(insertions.get(last + 1) ?? []), ...pending]);
-	return messages.flatMap((message, index) => [...(insertions.get(index) ?? []), message])
-		.concat(insertions.get(messages.length) ?? []);
+	return moveLeadingSystemBeforeCustomMessages(messages.flatMap((message, index) => [...(insertions.get(index) ?? []), message])
+		.concat(insertions.get(messages.length) ?? []));
+}
+
+function moveLeadingSystemBeforeCustomMessages(messages: AgentMessage[]): AgentMessage[] {
+	const index = messages.findIndex((message) => message.role !== "custom");
+	if (index <= 0 || messages[index]?.role !== "system") return messages;
+	return [messages[index]!, ...messages.slice(0, index), ...messages.slice(index + 1)];
 }
 
 function messageKey(message: AgentMessage): string {
