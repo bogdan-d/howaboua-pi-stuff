@@ -1,3 +1,17 @@
+# When `true`, reduce memory usage at the cost of performance
+smol = false
+telemetry = false
+# env = false
+
 [install]
 linker = "isolated"
 globalStore = true
+ignoreScripts = true
+# Only install package versions published at least 1 day ago
+minimumReleaseAge = 86400
+
+[console]
+depth = 3
+
+[run]
+noOrphans = true
