@@ -52,12 +52,9 @@ export function projectCodexDeveloperHistory(
 	});
 	const insertions = new Map<number, AgentMessage[]>();
 	let pending: AgentMessage[] = [];
-	const leadingSystem = messages[0]?.role === "system";
 	const insertPending = (index: number) => {
 		if (!pending.length) return;
-		// Pi reads the prompt and initial tools from index 0, even when bookkeeping predates that system entry.
-		const position = leadingSystem && index === 0 ? 1 : index;
-		insertions.set(position, [...(insertions.get(position) ?? []), ...pending]);
+		insertions.set(index, [...(insertions.get(index) ?? []), ...pending]);
 		pending = [];
 	};
 	let last = -1;
