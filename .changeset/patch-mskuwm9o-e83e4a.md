@@ -2,4 +2,4 @@
 "@howaboua/pi-codex-conversion": patch
 ---
 
-Update Code Mode host to Codex rust-v0.156.0
+Update Code Mode host to Codex rust-v0.156.1
