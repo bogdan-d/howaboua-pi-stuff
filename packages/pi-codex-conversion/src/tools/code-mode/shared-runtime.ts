@@ -1,3 +1,4 @@
+import type { ToolLoadout, ToolLoadoutChanges } from "@earendil-works/pi-coding-agent";
 import { ensureCodeModeHostBinary } from "./binary.js";
 import { createRetainedOutputStore, type RetainedOutputPage, type RetainedOutputSnapshot } from "../retained-output.ts";
 import { CodeModeHostClient } from "./host-client.js";
@@ -36,6 +37,7 @@ export interface CodeModeExecutionClient {
 
 export interface CodeModeToolProvider {
 	getTools(ctx?: unknown): CodeModeToolDefinition[];
+	prepareLoadout?(loadout: ToolLoadout): ToolLoadoutChanges | undefined;
 	documentationPath?: string | undefined;
 	isActive?(ctx: unknown): boolean;
 	providesRenderers?: boolean | undefined;
@@ -69,6 +71,14 @@ export class SharedCodeModeRuntime {
 
 	removeProvider(id: object): void {
 		this.providers.delete(id);
+	}
+
+	prepareLoadout(loadout: ToolLoadout): ToolLoadoutChanges {
+		const changes = [...this.providers.values()].map((provider) => provider.prepareLoadout?.(loadout));
+		return {
+			hiddenDeclarations: changes.flatMap((change) => change?.hiddenDeclarations ?? []),
+			descriptions: Object.assign({}, ...changes.map((change) => change?.descriptions)),
+		};
 	}
 
 	activeProviders(ctx?: unknown): CodeModeToolProvider[] {

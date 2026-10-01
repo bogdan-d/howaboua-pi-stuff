@@ -32,6 +32,7 @@ import {
 } from "./nested-tool-preflight.js";
 import { runCodeModeToolWithHooks } from "./nested-tool-completion.js";
 import { registerNotebookTool } from "./notebook-tool.ts";
+import { PiToolCallScope } from "./pi-tool-call-scope.ts";
 
 const DEFAULT_WAIT_MS = 10_000;
 const MIN_ADAPTIVE_WAIT_MS = 5_000;
@@ -81,17 +82,20 @@ function createExecTool(
 ): ToolDefinition<typeof EXEC_PARAMETERS> {
 	return {
 		name: "exec",
+		exposure: "model-only",
 		label: "Exec",
 		description: EXEC_DESCRIPTION,
 		promptSnippet: "Compose tools with JavaScript",
 		parameters: EXEC_PARAMETERS,
 		constrainedSampling: CODE_MODE_EXEC_CONSTRAINED_SAMPLING,
+		prepareLoadout: (loadout) => runtime.prepareLoadout(loadout),
 		async execute(id, params, signal, onUpdate, ctx) {
 			tracker.start(id);
+			const piToolScope = new PiToolCallScope(ctx, signal);
 			try {
 				const response = await (await runtime.getClient(ctx)).execute(
 					params.code,
-					{ cwd: ctx.cwd, toolCallId: id, extensionContext: ctx, ...hooks, onUpdate },
+					{ cwd: ctx.cwd, toolCallId: id, extensionContext: ctx, piToolScope, ...hooks, onUpdate },
 					signal,
 					runtime.collectTools(ctx),
 				);
@@ -103,6 +107,8 @@ function createExecTool(
 			} catch (error) {
 				tracker.finish(id);
 				throw error;
+			} finally {
+				await piToolScope.close();
 			}
 		},
 		renderCall: ((
@@ -131,6 +137,7 @@ function createWaitTool(
 	const constrainedSampling = getExperimentalToolSampling("wait");
 	return {
 		name: "wait",
+		exposure: "model-only",
 		label: "Wait",
 		description: WAIT_DESCRIPTION,
 		promptSnippet: "Resume or terminate an exec cell",
@@ -138,6 +145,7 @@ function createWaitTool(
 		...(constrainedSampling ? { constrainedSampling } : {}),
 		async execute(id, params, signal, onUpdate, ctx) {
 			tracker.start(id);
+			const piToolScope = new PiToolCallScope(ctx, signal);
 			try {
 				if (params.output_offset !== undefined) {
 					if (params.terminate) throw new Error("wait output_offset cannot be combined with terminate");
@@ -153,7 +161,7 @@ function createWaitTool(
 					return result;
 				}
 				const client = await runtime.getClient(ctx);
-				const context = { cwd: ctx.cwd, toolCallId: id, extensionContext: ctx, ...hooks, onUpdate };
+				const context = { cwd: ctx.cwd, toolCallId: id, extensionContext: ctx, piToolScope, ...hooks, onUpdate };
 				const attempt = waitAttempts.get(params.cell_id) ?? 0;
 				const response = params.terminate
 					? await client.terminate(params.cell_id, context, signal)
@@ -196,6 +204,8 @@ function createWaitTool(
 				waitAttempts.delete(params.cell_id);
 				tracker.finish(id);
 				throw error;
+			} finally {
+				await piToolScope.close();
 			}
 		},
 		renderCall: ((
